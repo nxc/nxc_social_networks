@@ -1,0 +1,13 @@
+div.nxc-facebook-icon-container, div.nxc-twitter-icon-container, div.nxc-linkedin-icon-container { text-align: center; }
+div.nxc-facebook-icon-container img, div.nxc-twitter-icon-container img, div.nxc-linkedin-icon-container img { padding: 5px; }
+
+a.nxc-facebook-signin, a.nxc-twitter-signin, a.nxc-linkedin-signin { width: 150px; height: 22px; display: block; text-indent: -500em; overflow: hidden; }
+a.nxc-facebook-signin { background: url('../images/facebook/signin.png') no-repeat top; }
+a.nxc-twitter-signin { background: url('../images/twitter/signin.png') no-repeat top; }
+a.nxc-linkedin-signin { background: url('../images/linkedin/signin.png') no-repeat top; }
+a.nxc-facebook-signin:hover, a.nxc-linkedin-signin:hover { background-position: 0 -24px; }
+a.nxc-twitter-signin:hover { background-position: 0 -22px; }
+a.nxc-facebook-signin:active, a.nxc-twitter-signin:active, a.nxc-linkedin-signin:active { background-position: bottom; }
+
+div.nxc-social-networks-login { margin: 0px -5px 0px -5px; }
+div.nxc-social-networks-login a { margin: 5px; float: left; }

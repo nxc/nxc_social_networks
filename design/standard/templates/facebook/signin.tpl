@@ -1,0 +1,2 @@
+{ezcss_require( array( 'nxc_social_networks.css' ) )}
+<a class="nxc-facebook-signin" href="{'nxc_facebook_signin/signin'|ezurl( 'no' )}">{'Facebook sign in'|i18n( 'extension/nxc_socail_networks' )}</a>
