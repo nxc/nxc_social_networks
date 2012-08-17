@@ -12,7 +12,7 @@ $Result = array();
 $Result['content'] = $tpl->fetch( 'design:twitter/settings.tpl' );
 $Result['path']    = array(
 	array(
-		'text' => ezpI18n::tr( 'extension/nxc_socail_networks', 'Twitter Settings' ),
+		'text' => ezpI18n::tr( 'extension/nxc_social_networks', 'Twitter Settings' ),
 		'url'  => false
 	)
 );

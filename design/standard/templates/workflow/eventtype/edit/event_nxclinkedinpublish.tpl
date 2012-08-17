@@ -1,25 +1,25 @@
 {* Class *}
 <div class="block">
-	<label>{'Class'|i18n( 'extension/nxc_socail_networks' )}:</label>
+	<label>{'Class'|i18n( 'extension/nxc_social_networks' )}:</label>
 	<select name="WorkflowEvent_event_nxclinkedinpublish_class_{$event.id}">
 	{foreach $event.workflow_type.contentclass_list as $class}
 		<option value="{$class.id}" {if eq( $event.workflow_type.current_class_id, $class.id )}selected="selected"{/if}>{$class.name|wash}</option>
 	{/foreach}
 	</select>
-	<input class="button" type="submit" name="CustomActionButton[{$event.id}_load_class_attribute_list]" value="{'Update attributes'|i18n( 'extension/nxc_socail_networks' )}" />
+	<input class="button" type="submit" name="CustomActionButton[{$event.id}_load_class_attribute_list]" value="{'Update attributes'|i18n( 'extension/nxc_social_networks' )}" />
 </div>
 
 
 
 {* Attributes *}
 <div class="block">
-	<label>{'Attribute'|i18n( 'extension/nxc_socail_networks' )}:</label>
+	<label>{'Attribute'|i18n( 'extension/nxc_social_networks' )}:</label>
 	<select name="WorkflowEvent_event_nxclinkedinpublish_class_attribute_{$event.id}">
 	{foreach $event.workflow_type.contentclass_attribute_list as $possible_attribute}
 		<option value="{$possible_attribute.id}">{$possible_attribute.name|wash}</option>
 	{/foreach}
 	</select>
-	<input class="button" type="submit" name="CustomActionButton[{$event.id}_new_class_attribute]" value="{'Select attribute'|i18n( 'extension/nxc_socail_networks' )}" />
+	<input class="button" type="submit" name="CustomActionButton[{$event.id}_new_class_attribute]" value="{'Select attribute'|i18n( 'extension/nxc_social_networks' )}" />
 </div>
 
 
@@ -30,13 +30,13 @@
 	{set $selected_class_attributes = $selected_class_attributes|remove( 0 )}
 {/if}
 <div class="block">
-	<label>{'Class/attribute combinations (%count)'|i18n( 'extension/nxc_socail_networks', , hash( '%count', $selected_class_attributes|count ) )}:</label>
+	<label>{'Class/attribute combinations (%count)'|i18n( 'extension/nxc_social_networks', , hash( '%count', $selected_class_attributes|count ) )}:</label>
 	{if gt( $selected_class_attributes|count(), 0 )}
 	<table class="list" cellspacing="0">
 		<tr>
 			<th class="tight">&nbsp;</th>
-			<th>{'Class'|i18n( 'extension/nxc_socail_networks' )}</th>
-			<th>{'Attribute'|i18n( 'extension/nxc_socail_networks' )}</th>
+			<th>{'Class'|i18n( 'extension/nxc_social_networks' )}</th>
+			<th>{'Attribute'|i18n( 'extension/nxc_social_networks' )}</th>
 		</tr>
 
 		{def
@@ -71,11 +71,11 @@
 		{undef $class_attribute $content_class}
 	</table>
 	{else}
-	<p>{'There are no combinations'|i18n( 'extension/nxc_socail_networks' )}</p>
+	<p>{'There are no combinations'|i18n( 'extension/nxc_social_networks' )}</p>
 	{/if}
 
 	<div class="controlbar">
-		<input class="button" type="submit" name="CustomActionButton[{$event.id}_remove_class_attribute]" value="{'Remove selected'|i18n( 'extension/nxc_socail_networks' )}" {if eq( $selected_class_attributes|count(), 0 )}disabled="disabled"{/if} />
+		<input class="button" type="submit" name="CustomActionButton[{$event.id}_remove_class_attribute]" value="{'Remove selected'|i18n( 'extension/nxc_social_networks' )}" {if eq( $selected_class_attributes|count(), 0 )}disabled="disabled"{/if} />
 	</div>
 </div>
 {undef $selected_class_attributes}
@@ -84,7 +84,7 @@
 
 {* Publish message only on object`s creation *}
 <div class="block">
-	<label>{'Publish message only on object`s creation'|i18n( 'extension/nxc_socail_networks' )}:</label>
+	<label>{'Publish message only on object`s creation'|i18n( 'extension/nxc_social_networks' )}:</label>
 	<input type="checkbox" name="WorkflowEvent_data_nxclinkedinpublish_publish_only_on_create_{$event.id}" value="1" {if $event.data_int1}checked="checked"{/if} />
 </div>
 
@@ -92,6 +92,6 @@
 
 {* Include node`s URL *}
 <div class="block">
-	<label>{'Include node`s URL to the message'|i18n( 'extension/nxc_socail_networks' )}:</label>
+	<label>{'Include node`s URL to the message'|i18n( 'extension/nxc_social_networks' )}:</label>
 	<input type="checkbox" name="WorkflowEvent_data_nxclinkedinpublish_include_url_{$event.id}" value="1" {if $event.data_int2}checked="checked"{/if} />
 </div>

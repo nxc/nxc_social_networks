@@ -1,12 +1,12 @@
 <?php
 /**
  * @package nxcSocialNetworks
- * @class   nxc_socail_networksInfo
+ * @class   nxc_social_networksInfo
  * @author  Serhey Dolgushev <serhey.dolgushev@nxc.no>
  * @date    15 Aug 2012
  **/
 
-class nxc_socail_networksInfo
+class nxc_social_networksInfo
 {
 	public static function info() {
 		return array(

@@ -12,7 +12,7 @@ $Result = array();
 $Result['content'] = $tpl->fetch( 'design:linkedin/settings.tpl' );
 $Result['path']    = array(
 	array(
-		'text' => ezpI18n::tr( 'extension/nxc_socail_networks', 'LinkedIn Settings' ),
+		'text' => ezpI18n::tr( 'extension/nxc_social_networks', 'LinkedIn Settings' ),
 		'url'  => false
 	)
 );

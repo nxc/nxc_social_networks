@@ -12,7 +12,7 @@ $Result = array();
 $Result['content'] = $tpl->fetch( 'design:facebook/settings.tpl' );
 $Result['path']    = array(
 	array(
-		'text' => ezpI18n::tr( 'extension/nxc_socail_networks', 'Facebook Settings' ),
+		'text' => ezpI18n::tr( 'extension/nxc_social_networks', 'Facebook Settings' ),
 		'url'  => false
 	)
 );

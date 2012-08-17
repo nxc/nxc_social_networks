@@ -1,7 +1,7 @@
 <?php /* #?ini charset="utf-8"?
 
 [ModuleSettings]
-ExtensionRepositories[]=nxc_socail_networks
+ExtensionRepositories[]=nxc_social_networks
 ModuleList[]=nxc_facebook_api
 ModuleList[]=nxc_twitter_api
 ModuleList[]=nxc_linkedin_api
