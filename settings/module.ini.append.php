@@ -8,4 +8,6 @@ ModuleList[]=nxc_linkedin_api
 ModuleList[]=nxc_facebook_signin
 ModuleList[]=nxc_twitter_signin
 ModuleList[]=nxc_linkedin_signin
+ModuleList[]=nxc_twitter_feed
+ModuleList[]=nxc_facebook_feed
 */ ?>

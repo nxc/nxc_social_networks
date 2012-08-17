@@ -7,8 +7,11 @@
 
 return array (
 	'TwitterOAuth'                   => './lib/twitter/twitteroauth.php',
+	'nxcTwitterFeed'                 => './classes/twitter/feed.php',
 	'Facebook'                       => './lib/facebook/facebook.php',
 	'FacebookApiException'           => './lib/facebook/facebook.php',
+	'nxcFacebookFeed'                => './classes/facebook/feed.php',
+	'nxcFacebookFeedOperations'      => './classes/facebook/feed_operations.php'
 	'LinkedIn'                       => './lib/linkedin/linkedin.php',
 	'LinkedInException'              => './lib/linkedin/linkedin.php',
 	'OAuthConsumer'                  => './lib/oauth.php',

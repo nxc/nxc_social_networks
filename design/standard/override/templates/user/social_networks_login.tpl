@@ -63,10 +63,10 @@ function AdminSiteaccessCheckbox( val )
 
     if( val.checked )
         loginForm.action = '{ezini( 'SiteSettings', 'AdditionalLoginFormActionURL' )}';
-    else 
+    else
         loginForm.action = loginFormDefaultAction;
 
-{rdelim} 
+{rdelim}
 
 -->
 </script>
@@ -110,3 +110,42 @@ function AdminSiteaccessCheckbox( val )
 </div></div></div>
 <div class="border-bl"><div class="border-br"><div class="border-bc"></div></div></div>
 </div>
+
+<h3>Facebook feed</h3>
+
+{def $messages = fetch( 'nxc_facebook_feed', 'home_timeline', hash( 'limit', 5 ) )}
+<ul>
+	{foreach $messages as $message}
+		<li>
+			{$message.message}
+			{$message.created_ago}
+		</li>
+	{/foreach}
+</ul>
+{undef $messages}
+
+<h3>Twitter feed</h3>
+{def $twitter_info = fetch( 'nxc_twitter_feed', 'user_info' )}
+<p>{$twitter_info.followers_count} followers</p>
+{undef $twitter_info}
+
+{def $last_twitts = fetch(
+	'nxc_twitter_feed',
+	'timeline',
+	hash(
+		'type', 'user',
+		'parameters', hash(
+			'screen_name', 'RedMagDaily',
+			'count', 5
+		)
+	)
+)}
+<ul>
+	{foreach $last_twitts as $tweet}
+		<li>
+			{$tweet.text}
+			{$tweet.created_ago}
+		</li>
+	{/foreach}
+</ul>
+{undef $last_twitts}

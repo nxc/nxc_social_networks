@@ -14,6 +14,6 @@ $Params['Module']->redirectTo(
 	'https://graph.facebook.com/oauth/authorize?' .
 	'client_id=' . $ini->variable( 'FacebookAPI', 'AppID' ) . '&' .
 	'redirect_uri=' . $redirectURL . '&' .
-	'scope=offline_access,publish_stream'
+	'scope=offline_access,publish_stream,read_stream'
 );
 ?>
