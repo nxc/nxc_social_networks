@@ -49,9 +49,12 @@ class nxcTwitterFeed
 
 				$response = $this->twitterAPI->get( 'statuses/' . $type . '_timeline', $parameters );
 
-				if( isset( $response->error ) ) {
-					eZDebug::writeError( $response->error, 'NXC Twitter feed' );
-					return false;
+				$errorKeys = array( 'error', 'errors' );
+				foreach( $errorKeys as $errorKey ) {
+					if( isset( $response->{$errorKey} ) ) {
+						eZDebug::writeError( $response->{$errorKey}, 'NXC Twitter feed' );
+						return false;
+					}
 				}
 
 				$statuses     = array();
