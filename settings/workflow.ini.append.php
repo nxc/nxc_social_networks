@@ -2,7 +2,5 @@
 
 [EventSettings]
 ExtensionDirectories[]=nxc_social_networks
-AvailableEventTypes[]=event_nxcfacebookpublish
-AvailableEventTypes[]=event_nxclinkedinpublish
-AvailableEventTypes[]=event_nxctwitterpublish
+AvailableEventTypes[]=event_nxcsocialnetworkspublish
 */ ?>

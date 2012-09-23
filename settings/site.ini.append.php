@@ -1,12 +1,8 @@
 <?php /* #?ini charset="utf-8"?
 
 [RoleSettings]
-PolicyOmitList[]=nxc_facebook_signin/signin
-PolicyOmitList[]=nxc_facebook_signin/callback
-PolicyOmitList[]=nxc_twitter_signin/signin
-PolicyOmitList[]=nxc_twitter_signin/callback
-PolicyOmitList[]=nxc_linkedin_signin/signin
-PolicyOmitList[]=nxc_linkedin_signin/callback
+PolicyOmitList[]=nxc_social_network_login/redirect
+PolicyOmitList[]=nxc_social_network_login/callback
 
 [Cache]
 CacheItems[]=nxcfacebook
