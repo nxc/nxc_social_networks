@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS `nxc_social_network_tokens`;
 CREATE TABLE `nxc_social_network_tokens` (
   `id` int(11) unsigned NOT NULL auto_increment,
   `type` tinyint(3) unsigned NOT NULL,
-  `token` varchar(255) NOT NULL,
+  `token` TEXT NOT NULL,
   `secret` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;

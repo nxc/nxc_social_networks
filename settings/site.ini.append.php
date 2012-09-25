@@ -7,6 +7,7 @@ PolicyOmitList[]=nxc_social_network_login/callback
 [Cache]
 CacheItems[]=nxcfacebook
 CacheItems[]=nxctwitter
+CacheItems[]=nxcnxcgoogle
 
 [Cache_nxcfacebook]
 name=NXC Facebook cache
@@ -19,4 +20,10 @@ name=NXC Twitter cache
 id=nxc-twitter
 tags[]=content
 path=nxc-twitter
+
+[Cache_nxcgoogle]
+name=NXC Google cache
+id=nxc-google
+tags[]=content
+path=nxc-google
 */ ?>

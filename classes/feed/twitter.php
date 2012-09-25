@@ -34,6 +34,13 @@ class nxcSocialNetworksFeedTwitter extends nxcSocialNetworksFeed
 			return $result;
 		}
 
+		$accumulator = $this->debugAccumulatorGroup . '_twitter_timeline_' . $type;
+		eZDebug::accumulatorStart(
+			$accumulator,
+			$this->debugAccumulatorGroup,
+			'timeline/' . $type
+		);
+
 		$parameters['type'] = $type;
 		$cacheFileHandler   = $this->getCacheFileHandler( 'timeline', $parameters );
 
@@ -70,9 +77,11 @@ class nxcSocialNetworksFeedTwitter extends nxcSocialNetworksFeed
 				$statuses = unserialize( $cacheFileHandler->fetchContents() );
 			}
 
+			eZDebug::accumulatorStop( $accumulator );
 			$result['result'] = $statuses;
 			return $result;
 		} catch( Exception $e ) {
+			eZDebug::accumulatorStop( $accumulator );
 			eZDebug::writeError( $e, self::$debugMessagesGroup );
 			return $result;
 		}
@@ -80,6 +89,13 @@ class nxcSocialNetworksFeedTwitter extends nxcSocialNetworksFeed
 
 	public function getUserInfo() {
 		$result = array( 'result' => array() );
+
+		$accumulator = $this->debugAccumulatorGroup . '_twitter_userinfo';
+		eZDebug::accumulatorStart(
+			$accumulator,
+			$this->debugAccumulatorGroup,
+			'userinfo'
+		);
 
 		try{
 			$response = $this->API->get( 'account/verify_credentials' );
@@ -111,9 +127,11 @@ class nxcSocialNetworksFeedTwitter extends nxcSocialNetworksFeed
 				$info = unserialize( $cacheFileHandler->fetchContents() );
 			}
 
+			eZDebug::accumulatorStop( $accumulator );
 			$result['result'] = $info;
 			return $result;
 		} catch( Exception $e ) {
+			eZDebug::accumulatorStop( $accumulator );
 			eZDebug::writeError( $e, self::$debugMessagesGroup );
 			return $result;
 		}

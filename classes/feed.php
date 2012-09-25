@@ -9,7 +9,8 @@
 abstract class nxcSocialNetworksFeed
 {
 	protected $API = null;
-	protected $cacheSettings  = null;
+	protected $cacheSettings = null;
+	protected $debugAccumulatorGroup = null;
 
 	protected static $cacheDirectory = null;
 	protected static $debugMessagesGroup = null;
@@ -19,6 +20,10 @@ abstract class nxcSocialNetworksFeed
 			'path' => eZSys::cacheDirectory() . '/' . static::$cacheDirectory . '/',
 			'ttl'  => 60
 		);
+
+		$this->debugAccumulatorGroup = 'nxc_social_networks_feed_';
+		$this->debugAccumulatorGroup .= strtolower( str_replace( __CLASS__, '', get_called_class() ) );
+		eZDebug::createAccumulatorGroup( $this->debugAccumulatorGroup, static::$debugMessagesGroup );
 	}
 
 	protected function getCacheFileHandler( $key, $params ) {

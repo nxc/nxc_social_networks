@@ -11,6 +11,7 @@ class nxcSocialNetworksOAuth2Token extends eZPersistentObject
 	const TYPE_FACEBOOK = 1;
 	const TYPE_TWITTER  = 2;
 	const TYPE_LINKEDIN = 3;
+	const TYPE_GOOGLE   = 4;
 
 	public static function definition() {
 		return array(

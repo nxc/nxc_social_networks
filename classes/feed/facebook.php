@@ -29,6 +29,13 @@ class nxcSocialNetworksFeedFacebook extends nxcSocialNetworksFeed
 	public function getTimeline( $pageID = false, $limit = 20 ) {
 		$result = array( 'result' => array() );
 
+		$accumulator = $this->debugAccumulatorGroup . '_facebook_timeline';
+		eZDebug::accumulatorStart(
+			$accumulator,
+			$this->debugAccumulatorGroup,
+			'timeline'
+		);
+
 		$cacheFileHandler = $this->getCacheFileHandler( '_timeline', array( $pageID, $limit ) );
 		try{
 			if( $this->isCacheExpired( $cacheFileHandler ) ) {
@@ -63,9 +70,11 @@ class nxcSocialNetworksFeedFacebook extends nxcSocialNetworksFeed
 				$messages = unserialize( $cacheFileHandler->fetchContents() );
 			}
 
+			eZDebug::accumulatorStop( $accumulator );
 			$result['result'] = $messages;
 			return $result;
 		} catch( Exception $e ) {
+			eZDebug::accumulatorStop( $accumulator );
 			eZDebug::writeError( $e, self::$debugMessagesGroup );
 			return $result;
 		}

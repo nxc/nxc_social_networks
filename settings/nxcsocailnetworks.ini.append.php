@@ -4,10 +4,12 @@
 OAuth2[facebook]=nxcSocialNetworksOAuth2Facebook
 OAuth2[twitter]=nxcSocialNetworksOAuth2Twitter
 OAuth2[linkedin]=nxcSocialNetworksOAuth2LinkedIn
+OAuth2[google]=nxcSocialNetworksOAuth2Google
 
 LoginHandlers[facebook]=nxcSocialNetworksLoginHanlderFacebook
 LoginHandlers[twitter]=nxcSocialNetworksLoginHanlderTwitter
 LoginHandlers[linkedin]=nxcSocialNetworksLoginHanlderLinkedIn
+LoginHandlers[google]=nxcSocialNetworksLoginHanlderGoogle
 
 PublishHandlers[facebook]=nxcSocialNetworksPublishHanlderFacebook
 PublishHandlers[twitter]=nxcSocialNetworksPublishHanlderTwitter
@@ -35,4 +37,13 @@ Secret=KYUMpdSFVvCDoNqqs7l4gSFohurQBW3kZwgT8r7ts
 Key=1smten1is0im
 Secret=4OHUDQvDSANzKZ63
 
+$ 1. Go to https://code.google.com/apis/console > Services and enable "Google+ API"
+# 2. Go to https://code.google.com/apis/console > API Access  and click on "Create an OAuth2 client ID"
+# Set the following application setting
+# - Client ID for web applications > Redirect URIs:
+# http://path_to_your_ezp_admin_siteaccess/nxc_social_network_token/get_access_token/google
+# http://yoursite.com/nxc_social_network_login/callback/google ogle
+[GoogleApplication]
+Key=73620309723.apps.googleusercontent.com
+Secret=pJgactbwXQ4H09AmJB3dTga7
 */ ?>

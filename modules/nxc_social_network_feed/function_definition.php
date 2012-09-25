@@ -49,7 +49,6 @@ $FunctionList['twitter_user_info'] = array(
 	'parameter_type' => 'standard',
 	'parameters'     => array()
 );
-
 /**
  * @see https://developers.facebook.com/docs/reference/api/user/#feed
  **/
@@ -75,4 +74,62 @@ $FunctionList['facebook_timeline'] = array(
 		)
 	)
 );
+
+/**
+ * @see https://developers.google.com/+/api/latest/activities/list
+ **/
+$FunctionList['google_activities_list'] = array(
+	'name'           => 'google_activities_list',
+	'call_method'    => array(
+		'class'  => 'nxcSocialNetworksFeedGoogle',
+		'method' => 'getActivitiesList'
+	),
+	'parameter_type' => 'standard',
+	'parameters'       => array(
+		array(
+			'name'     => 'user_id',
+			'type'     => 'string',
+			'required' => false,
+			'default'  => false
+		),
+		array(
+			'name'     => 'limit',
+			'type'     => 'int',
+			'required' => false,
+			'default'  => 20
+		)
+	)
+);
+/**
+ * @see https://developers.google.com/+/api/latest/activities/search
+ **/
+$FunctionList['google_activities_search'] = array(
+	'name'           => 'google_activities_search',
+	'call_method'    => array(
+		'class'  => 'nxcSocialNetworksFeedGoogle',
+		'method' => 'searchActivities'
+	),
+	'parameter_type' => 'standard',
+	'parameters'       => array(
+		array(
+			'name'     => 'query',
+			'type'     => 'string',
+			'required' => false,
+			'default'  => false
+		),
+		array(
+			'name'     => 'limit',
+			'type'     => 'int',
+			'required' => false,
+			'default'  => 20
+		),
+		array(
+			'name'     => 'sorting',
+			'type'     => 'string',
+			'required' => false,
+			'default'  => 'best'
+		)
+	)
+);
+
 ?>
