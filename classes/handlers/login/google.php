@@ -29,6 +29,7 @@ class nxcSocialNetworksLoginHanlderGoogle extends nxcSocialNetworksLoginHanlder
 
 	public function getLoginURL( array $scopes = null, $redirectURL = null ) {
 		$this->OAunth2Connection->connection->setAccessType( 'online' );
+		$this->OAunth2Connection->connection->setApprovalPrompt( 'auto' );
 		return $this->OAunth2Connection->getAuthorizeURL( $scopes, $redirectURL );
 	}
 

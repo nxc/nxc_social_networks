@@ -36,7 +36,6 @@ $FunctionList['twitter_timeline'] = array(
 		)
 	)
 );
-
 /**
  * @see https://dev.twitter.com/docs/api/1.1/get/users/show
  **/
@@ -49,6 +48,7 @@ $FunctionList['twitter_user_info'] = array(
 	'parameter_type' => 'standard',
 	'parameters'     => array()
 );
+
 /**
  * @see https://developers.facebook.com/docs/reference/api/user/#feed
  **/

@@ -47,7 +47,7 @@ class nxcSocialNetworksLoginHanlderLinkedIn extends nxcSocialNetworksLoginHanlde
 			empty( $email )
 			|| eZUser::fetchByEmail( $email ) instanceof eZUser
 		) {
-			$email = $profile['id'] . '@nospam.linkedin.com';
+			$email = $this->profile['id'] . '@nospam.linkedin.com';
 		}
 
 		$attributes = array(
