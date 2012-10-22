@@ -28,7 +28,7 @@ class nxcSocialNetworksOAuth2Twitter extends nxcSocialNetworksOAuth2
 
 		switch( $connection->http_code ) {
 			case 200:
-				return $connection->getAuthorizeURL( $requestToken['oauth_token'], false );
+				return $connection->getAuthorizeURL( $requestToken['oauth_token'], true );
 			default:
 				throw new Exception( 'Could not connect to Twitter. Refresh the page or try again later.' );
 		}
