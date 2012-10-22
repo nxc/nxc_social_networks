@@ -40,5 +40,18 @@ abstract class nxcSocialNetworksLoginHanlder extends nxcSocialNetworksBase
 		$passwordHash = eZUser::createHash( $login, $password, eZUser::site(), eZUser::hashType() );
 		return $login . '|' . $email . '|' . $passwordHash . '|' . eZUser::passwordHashTypeName( eZUser::hashType() );
 	}
+
+	public static function getUniqueIdentifier() {
+		$ini = eZINI::instance( 'nxcsocailnetworks.ini' );
+		$identifier = $ini->hasVariable( 'General', 'UniqueUserIdentifier' )
+			? $ini->variable( 'General', 'UniqueUserIdentifier' )
+			: 'email';
+
+		if( in_array( $identifier, array( 'email', 'remote_id' ) ) === false ) {
+			$identifier = 'email';
+		}
+
+		return $identifier;
+	}
 }
 ?>

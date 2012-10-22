@@ -1,6 +1,9 @@
 <?php /* #?ini charset="utf-8"?
 
 [General]
+# It could be email or remote_id
+UniqueUserIdentifier=email
+
 OAuth2[facebook]=nxcSocialNetworksOAuth2Facebook
 OAuth2[twitter]=nxcSocialNetworksOAuth2Twitter
 OAuth2[linkedin]=nxcSocialNetworksOAuth2LinkedIn

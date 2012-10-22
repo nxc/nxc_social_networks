@@ -70,10 +70,7 @@ class nxcSocialNetworksLoginHanlderFacebook extends nxcSocialNetworksLoginHanlde
 		) {
 			$login = 'FacebookUser_' . $uid;
 		}
-		if(
-			empty( $email )
-			|| eZUser::fetchByEmail( $email ) instanceof eZUser
-		) {
+		if( empty( $email ) ) {
 			$email = $uid . '@nospam.facebook.com';
 		}
 

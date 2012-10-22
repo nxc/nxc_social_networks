@@ -49,10 +49,7 @@ class nxcSocialNetworksLoginHanlderGoogle extends nxcSocialNetworksLoginHanlder
 	public function getUserData() {
 		$login = 'GoogleUser_' . $this->profile['id'];
 		$email = $this->profile['email'];
-		if(
-			empty( $email )
-			|| eZUser::fetchByEmail( $email ) instanceof eZUser
-		) {
+		if( empty( $email ) ) {
 			$email = $this->profile['id'] . '@nospam.google.com';
 		}
 
