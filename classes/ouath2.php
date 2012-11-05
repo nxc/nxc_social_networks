@@ -22,7 +22,7 @@ abstract class nxcSocialNetworksOAuth2 extends nxcSocialNetworksBase
 	protected function __construct() {
 		$this->token = nxcSocialNetworksOAuth2Token::fetch( static::$tokenType );
 
-		$ini = eZINI::instance( 'nxcsocailnetworks.ini' );
+		$ini = eZINI::instance( 'nxcsocialnetworks.ini' );
 		$appSettingsGroup  = str_replace( __CLASS__, '', get_called_class() ) . 'Application';
 		$this->appSettings = array(
 			'key'      => $ini->variable( $appSettingsGroup, 'Key' ),

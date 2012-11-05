@@ -65,7 +65,7 @@ class nxcSocialNetworksPublishHanlder extends eZPersistentObject
 	}
 
 	public static function getTypes() {
-		$ini = eZINI::instance( 'nxcsocailnetworks.ini' );
+		$ini = eZINI::instance( 'nxcsocialnetworks.ini' );
 		return (array) $ini->variable( 'General', 'PublishHandlers' );
 	}
 
@@ -73,7 +73,7 @@ class nxcSocialNetworksPublishHanlder extends eZPersistentObject
 		$types = self::getTypes();
 
 		if( isset( $types[ $type ] ) === false ) {
-			throw new Exception( '"' . $type . '" is not supported type. Please check nxcsocailnetworks.ini' );
+			throw new Exception( '"' . $type . '" is not supported type. Please check nxcsocialnetworks.ini' );
 		}
 
 		return new $types[ $type ](

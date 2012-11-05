@@ -27,7 +27,7 @@
 
 		<div class="content-navigation-childlist">
 			<div class="nxc-social-networks-icon-container">
-				{def $types = ezini( 'General', 'OAuth2', 'nxcsocailnetworks.ini' )}
+				{def $types = ezini( 'General', 'OAuth2', 'nxcsocialnetworks.ini' )}
 				{foreach $types as $type => $class}
 				<a id="nxc-{$type}-connect" href="{concat( 'nxc_social_network_token/authorize/', $type )|ezurl( 'no' )}">
 					<img alt="{'Connect account'|i18n( 'extension/nxc_social_networks' )}" src="{concat( $type, '/connect.png' )|ezimage( 'no' )}" />

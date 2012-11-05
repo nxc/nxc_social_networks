@@ -42,7 +42,7 @@ abstract class nxcSocialNetworksLoginHanlder extends nxcSocialNetworksBase
 	}
 
 	public static function getUniqueIdentifier() {
-		$ini = eZINI::instance( 'nxcsocailnetworks.ini' );
+		$ini = eZINI::instance( 'nxcsocialnetworks.ini' );
 		$identifier = $ini->hasVariable( 'General', 'UniqueUserIdentifier' )
 			? $ini->variable( 'General', 'UniqueUserIdentifier' )
 			: 'email';

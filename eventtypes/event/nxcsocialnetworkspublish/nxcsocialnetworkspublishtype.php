@@ -18,7 +18,7 @@ class nxcSocialNetworksPublishType extends eZWorkflowEventType
 	}
 
 	public function execute( $process, $event ) {
-		eZDebug::createAccumulatorGroup( 'nxc_social_networks_publish', 'NXC Socail Networks Publish' );
+		eZDebug::createAccumulatorGroup( 'nxc_social_networks_publish', 'NXC Social Networks Publish' );
 
 		$processParams = $process->attribute( 'parameter_list' );
 		$classIDs      = unserialize( $event->attribute( 'data_text1' ) );
@@ -67,7 +67,7 @@ class nxcSocialNetworksPublishType extends eZWorkflowEventType
 				try{
 					$hanlder->publish( $object, $attributeContent );
 				} catch( Exception $e ) {
-					eZDebug::writeError( $e->getMessage(), 'NXC Socail Networks Publish' );
+					eZDebug::writeError( $e->getMessage(), 'NXC Social Networks Publish' );
 				}
 
 				eZDebug::accumulatorStop( $accumulator );

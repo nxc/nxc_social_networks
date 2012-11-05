@@ -20,11 +20,11 @@ abstract class nxcSocialNetworksBase
 	}
 
 	public static function getInstanceByType( $type ) {
-		$ini   = eZINI::instance( 'nxcsocailnetworks.ini' );
+		$ini   = eZINI::instance( 'nxcsocialnetworks.ini' );
 		$types = (array) $ini->variable( 'General', static::$typeSettingsGroup );
 
 		if( isset( $types[ $type ] ) === false ) {
-			throw new Exception( '"' . $type . '" is not supported type. Please check nxcsocailnetworks.ini' );
+			throw new Exception( '"' . $type . '" is not supported type. Please check nxcsocialnetworks.ini' );
 		}
 
 		$callback = array( $types[ $type ], 'getInstance' );

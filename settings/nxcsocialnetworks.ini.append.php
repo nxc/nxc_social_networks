@@ -23,22 +23,22 @@ PublishHandlers[linkedin]=nxcSocialNetworksPublishHanlderLinkedIn
 # - Basic info > App Domains = yoursite.com
 # - Website with Facebook Login > Site URL = yoursite.com
 [FacebookApplication]
-Key=346632372084634
-Secret=6d3539ab76b752fbacac1f2b6d305ae2
+Key=157950161011566
+Secret=1cabbae607a99a346482f655845a49fd
 
 # New application can be created at https://dev.twitter.com/apps/new
 # Set the following application settings
 # - Access level = Read and write
 [TwitterApplication]
-Key=kvYRwQrnPeaDfd0kj63WCQ
-Secret=KYUMpdSFVvCDoNqqs7l4gSFohurQBW3kZwgT8r7ts
+Key=cRACdvBvd74Bw4gtqtlQ
+Secret=jD81UH24wXP9f8UscgQbqaqVzbHIxKagadb5BZCwcg
 
 # New application can be created at https://www.linkedin.com/secure/developer
 # Set the following application settings
 # - Application Info > Website URL = yoursite.com
 [LinkedInApplication]
-Key=1smten1is0im
-Secret=4OHUDQvDSANzKZ63
+Key=54b5bpmfccwh
+Secret=AcfsXn0pKjntiXzV
 
 $ 1. Go to https://code.google.com/apis/console > Services and enable "Google+ API"
 # 2. Go to https://code.google.com/apis/console > API Access  and click on "Create an OAuth2 client ID"
