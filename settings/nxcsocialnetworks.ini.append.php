@@ -47,6 +47,6 @@ $ 1. Go to https://code.google.com/apis/console > Services and enable "Google+ A
 # http://path_to_your_ezp_admin_siteaccess/nxc_social_network_token/get_access_token/google
 # http://yoursite.com/nxc_social_network_login/callback/google ogle
 [GoogleApplication]
-Key=73620309723.apps.googleusercontent.com
-Secret=pJgactbwXQ4H09AmJB3dTga7
+Key=73620309723-2mhrhgjd76qbe40ovtv1ao4s63b0c606.apps.googleusercontent.com
+Secret=3qzEo880hnTuQEeZKCJ9Y9Ra
 */ ?>
