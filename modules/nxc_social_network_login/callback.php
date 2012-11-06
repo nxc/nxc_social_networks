@@ -9,10 +9,16 @@ $module = $Params['Module'];
 $http   = eZHTTPTool::instance();
 $ini    = eZINI::instance();
 
-// Handling cancel button for LinkedIn if no "Cancel Redirect URL" is specified
+// Handling cancel button
 if(
-	$http->hasGetVariable( 'oauth_problem' )
-	&& $http->getVariable( 'oauth_problem' ) == 'user_refused' 
+	$http->hasGetVariable( 'denied' )
+	|| (
+		$http->hasGetVariable( 'oauth_problem' )
+		&& $http->getVariable( 'oauth_problem' ) == 'user_refused'
+	) || (
+		$http->hasGetVariable( 'error' )
+		&& $http->getVariable( 'error' ) == 'access_denied'
+	)
 ) {
 	return $module->redirectTo( '/' );
 }

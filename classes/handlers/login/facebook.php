@@ -46,7 +46,7 @@ class nxcSocialNetworksLoginHanlderFacebook extends nxcSocialNetworksLoginHanlde
 
 	public function getUserData() {
 		$connection  = $this->getFacebookConnection();
-		$uid         = (int) $connection->getUser();
+		$uid         = $connection->getUser();
 		if( $uid === 0 ) {
 			throw new Exception( 'Could not get user ID. Refresh the page or try again later.' );
 		}
