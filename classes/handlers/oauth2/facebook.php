@@ -11,7 +11,7 @@ class nxcSocialNetworksOAuth2Facebook extends nxcSocialNetworksOAuth2
 	public static $tokenType = nxcSocialNetworksOAuth2Token::TYPE_FACEBOOK;
 
 	public function getPersistenceTokenScopes() {
-		return array( 'offline_access', 'publish_stream', 'read_stream' );
+		return array( 'offline_access', 'publish_stream', 'read_stream', 'manage_pages' );
 	}
 
 	public function getAuthorizeURL( array $scopes = null, $redirectURL = null ) {

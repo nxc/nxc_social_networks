@@ -107,7 +107,7 @@ class nxcSocialNetworksPublishType extends eZWorkflowEventType
 			}
 			case 'contentclass_attribute_list': {
 				if( count( self::$classAttributes ) === 0 ) {
-					self::$classAttributes = eZContentClassAttribute::fetchList(
+					$classAttributes = eZContentClassAttribute::fetchList(
 						true,
 						array(
 							'data_type' => array(
@@ -118,6 +118,21 @@ class nxcSocialNetworksPublishType extends eZWorkflowEventType
 							)
 						)
 					);
+
+					// Sorting class attributes
+					$sort    = array();
+					$attrIDs = array();
+					foreach( $classAttributes as $attribute ) {
+						$class = eZContentClass::fetch( $attribute->attribute( 'contentclass_id' ) );
+						$sort[ $attribute->attribute( 'id' ) ] = $class->attribute( 'name' ) . $attribute->attribute( 'name' );
+						$attrIDs[ $attribute->attribute( 'id' ) ] = $attribute;
+					}
+					asort( $sort );
+
+					self::$classAttributes = array();
+					foreach( $sort as $id => $sortString ) {
+						self::$classAttributes[ $id ] = $attrIDs[ $id ];
+					}
 				}
 
 				return self::$classAttributes;
