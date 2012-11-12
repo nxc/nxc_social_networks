@@ -11,6 +11,11 @@ class nxcSocialNetworksPublishHanlderLinkedIn extends nxcSocialNetworksPublishHa
 	protected $name = 'LinkedIn';
 
 	public function publish( eZContentObject $object, $message ) {
+		if( class_exists( 'Normalizer' ) ) {
+			$message = Normalizer::normalize( $message, Normalizer::FORM_C );
+		}
+		$message = mb_substr( $message, 0, 400 );
+
 		$share = array(
 			'title'       => $object->attribute( 'name' ),
 			'description' => $message
