@@ -28,6 +28,8 @@ class nxcSocialNetworksOAuth2Google extends nxcSocialNetworksOAuth2
 		$this->connection->setRedirectUri( $redirectURL );
 		$this->connection->setApplicationName( 'eZ Publish' );
 		$this->connection->setAccessType( 'offline' );
+
+		$this->setState();
 	}
 
 	public function getPersistenceTokenScopes() {
@@ -61,6 +63,14 @@ class nxcSocialNetworksOAuth2Google extends nxcSocialNetworksOAuth2
 			'token'  => $accessToken,
 			'secret' => null
 		);
+	}
+
+	public function setState() {
+		$http = eZHTTPTool::instance();
+		
+		if( $http->hasGetVariable( 'state' ) ) {
+			$this->connection->setState( base64_encode( $http->getVariable( 'state' ) ) );
+		}
 	}
 }
 ?>
