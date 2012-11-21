@@ -142,10 +142,10 @@ if( $object instanceof eZContentObject ) {
 			$redirectURI = $http->getVariable( 'login_redirect_url' );
 		} elseif( $http->hasGetVariable( 'state' ) ) {
 			$redirectURI = base64_decode( $http->getVariable( 'state' ) );
-		} elseif( $http->hasSessionVariable( 'LastAccessesURI' ) && $http->sessionVariable( 'LastAccessesURI' ) != "" ) {
+		} elseif( $http->hasSessionVariable( 'LastAccessesURI' ) && $http->sessionVariable( 'LastAccessesURI' ) !== '' ) {
 			$redirectURI = $http->sessionVariable( 'LastAccessesURI' );
-		} elseif($_SERVER['HTTP_REFERER'] != '' ) {
-			$redirectURI = $_SERVER['HTTP_REFERER'];
+		} elseif( ( $refferer = eZSys::serverVariable( 'HTTP_REFERER', true ) ) !== null ) {
+			$redirectURI = $refferer;
 		} else {
 			$redirectURI = $ini->variable( 'SiteSettings', 'DefaultPage' );
 		}
