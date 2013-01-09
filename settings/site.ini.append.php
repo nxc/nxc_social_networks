@@ -1,5 +1,8 @@
 <?php /* #?ini charset="utf-8"?
 
+[RegionalSettings]
+TranslationExtensions[]=nxc_social_networks
+
 [RoleSettings]
 PolicyOmitList[]=nxc_social_network_login/redirect
 PolicyOmitList[]=nxc_social_network_login/callback
