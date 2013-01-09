@@ -71,6 +71,12 @@ $FunctionList['facebook_timeline'] = array(
 			'type'     => 'int',
 			'required' => false,
 			'default'  => 20
+		),
+		array(
+			'name'     => 'type',
+			'type'     => 'string',
+			'required' => false,
+			'default'  => false
 		)
 	)
 );

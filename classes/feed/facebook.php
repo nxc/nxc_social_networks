@@ -26,7 +26,7 @@ class nxcSocialNetworksFeedFacebook extends nxcSocialNetworksFeed
 		$this->acessToken = $OAuth2Token->attribute( 'token' );
 	}
 
-	public function getTimeline( $pageID = false, $limit = 20 ) {
+	public function getTimeline( $pageID = false, $limit = 20, $type = 'feed' ) {
 		$result = array( 'result' => array() );
 
 		$accumulator = $this->debugAccumulatorGroup . '_facebook_timeline';
@@ -36,7 +36,7 @@ class nxcSocialNetworksFeedFacebook extends nxcSocialNetworksFeed
 			'timeline'
 		);
 
-		$cacheFileHandler = $this->getCacheFileHandler( '_timeline', array( $pageID, $limit ) );
+		$cacheFileHandler = $this->getCacheFileHandler( '_timeline', array( $pageID, $limit, $type ) );
 		try{
 			if( $this->isCacheExpired( $cacheFileHandler ) ) {
 				eZDebug::writeDebug(
@@ -45,7 +45,7 @@ class nxcSocialNetworksFeedFacebook extends nxcSocialNetworksFeed
 				);
 
 				$response = $this->API->api(
-					( $pageID === false ) ? 'me/home' : '/' . $pageID . '/feed',
+					( ( $pageID === false ) ? 'me/home' : '/' . $pageID ) . '/' . $type,
 					array(
 						'access_token' => $this->acessToken,
 						'limit'        => $limit
