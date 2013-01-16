@@ -76,7 +76,7 @@ $FunctionList['facebook_timeline'] = array(
 			'name'     => 'type',
 			'type'     => 'string',
 			'required' => false,
-			'default'  => false
+			'default'  => 'feed'
 		)
 	)
 );
