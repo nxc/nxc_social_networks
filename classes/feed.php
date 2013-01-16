@@ -28,7 +28,8 @@ abstract class nxcSocialNetworksFeed
 
 	protected function getCacheFileHandler( $key, $params ) {
 		return eZClusterFileHandler::instance(
-			$this->cacheSettings['path'] . md5( serialize( $params ) ) . '_' . $key . '.php'
+			$this->cacheSettings['path'] . md5( serialize( $params ) )
+				. '_' . $GLOBALS['eZCurrentAccess']['name'] . '_' . $key . '.php'
 		);
 	}
 
