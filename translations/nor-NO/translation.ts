@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>About %weeks weeks ago</source>
-        <translation>Om %days uker siden</translation>
+        <translation>Om %weeks uker siden</translation>
     </message>
 </context>
 </TS>
