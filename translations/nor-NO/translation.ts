@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>About %days days ago</source>
-        <translation>Om %days dager siden</translation>
+        <translation>For %days dager siden</translation>
     </message>
     <message>
         <source>About %weeks weeks ago</source>
