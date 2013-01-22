@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>About %hours hours ago</source>
-        <translation>Om %hours timer siden</translation>
+        <translation>For %hours timer siden</translation>
     </message>
     <message>
         <source>About %days days ago</source>
