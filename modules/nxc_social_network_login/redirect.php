@@ -8,17 +8,17 @@
 $module = $Params['Module'];
 
 try{
-	$hanlder = nxcSocialNetworksLoginHanlder::getInstanceByType( $Params['type'] );
+	$handler = nxcSocialNetworksLoginHandler::getInstanceByType( $Params['type'] );
 } catch( Exception $e ) {
 	eZDebug::writeError( $e->getMessage(), 'NXC Social Networks Login' );
 	return $module->handleError( eZError::KERNEL_NOT_FOUND, 'kernel' );
 }
 
 try{
-	$scopes      = $hanlder->getScopes();
-	$redirectURL = $hanlder->getCallbackURL();
+	$scopes      = $handler->getScopes();
+	$redirectURL = $handler->getCallbackURL();
 
-	header( 'Location: ' . $hanlder->getLoginURL( $scopes, $redirectURL ) );
+	header( 'Location: ' . $handler->getLoginURL( $scopes, $redirectURL ) );
 	eZExecution::cleanExit();
 } catch( Exception $e ) {
 	eZDebug::writeError( $e->getMessage(), 'NXC Social Networks Login' );

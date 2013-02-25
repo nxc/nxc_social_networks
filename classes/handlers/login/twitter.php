@@ -1,12 +1,12 @@
 <?php
 /**
  * @package nxcSocialNetworks
- * @class   nxcSocialNetworksLoginHanlderTwitter
+ * @class   nxcSocialNetworksLoginHandlerTwitter
  * @author  Serhey Dolgushev <serhey.dolgushev@nxc.no>
  * @date    16 Sep 2012
  **/
 
-class nxcSocialNetworksLoginHanlderTwitter extends nxcSocialNetworksLoginHanlder
+class nxcSocialNetworksLoginHandlerTwitter extends nxcSocialNetworksLoginHandler
 {
 	protected function __construct() {
 		parent::__construct();

@@ -25,21 +25,21 @@ if(
 
 // Get handler
 try{
-	$hanlder = nxcSocialNetworksLoginHanlder::getInstanceByType( $Params['type'] );
+	$handler = nxcSocialNetworksLoginHandler::getInstanceByType( $Params['type'] );
 } catch( Exception $e ) {
 	eZDebug::writeError( $e->getMessage(), 'NXC Social Networks Login' );
 	return $module->handleError( eZError::KERNEL_NOT_FOUND, 'kernel' );
 }
 // Get user`s remote ID
 try{
-	$remoteID = $hanlder->getUserRemoteID();
+	$remoteID = $handler->getUserRemoteID();
 } catch( Exception $e ) {
 	eZDebug::writeError( $e->getMessage(), 'NXC Social Networks Login' );
 	return $module->handleError( eZError::KERNEL_NOT_FOUND, 'kernel' );
 }
 // Get user`s attributes
 try{
-	$attributes = $hanlder->getUserData();
+	$attributes = $handler->getUserData();
 } catch( Exception $e ) {
 	eZDebug::writeError( $e->getMessage(), 'NXC Social Networks Login' );
 	return $module->handleError( eZError::KERNEL_NOT_FOUND, 'kernel' );
@@ -47,7 +47,7 @@ try{
 
 // Trying to fetch current user from eZ Publish
 $object = false;
-$uniqueIdentifier = nxcSocialNetworksLoginHanlder::getUniqueIdentifier();
+$uniqueIdentifier = nxcSocialNetworksLoginHandler::getUniqueIdentifier();
 if( $uniqueIdentifier == 'email' ) {
 	$account = explode( '|', $attributes['user_account'] );
 	if( isset( $account[1] ) ) {

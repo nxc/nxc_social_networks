@@ -1,12 +1,12 @@
 <?php
 /**
  * @package nxcSocialNetworks
- * @class   nxcSocialNetworksPublishHanlderFacebook
+ * @class   nxcSocialNetworksPublishHandlerFacebook
  * @author  Serhey Dolgushev <serhey.dolgushev@nxc.no>
  * @date    21 Sep 2012
  **/
 
-class nxcSocialNetworksPublishHanlderFacebook extends nxcSocialNetworksPublishHanlder
+class nxcSocialNetworksPublishHandlerFacebook extends nxcSocialNetworksPublishHandler
 {
 	protected $name = 'Facebook';
 	private $acessToken = null;

@@ -1,12 +1,12 @@
 <?php
 /**
  * @package nxcSocialNetworks
- * @class   nxcSocialNetworksPublishHanlderTwitter
+ * @class   nxcSocialNetworksPublishHandlerTwitter
  * @author  Serhey Dolgushev <serhey.dolgushev@nxc.no>
  * @date    21 Sep 2012
  **/
 
-class nxcSocialNetworksPublishHanlderTwitter extends nxcSocialNetworksPublishHanlder
+class nxcSocialNetworksPublishHandlerTwitter extends nxcSocialNetworksPublishHandler
 {
 	protected $name = 'Twitter';
 

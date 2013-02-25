@@ -1,12 +1,12 @@
 <?php
 /**
  * @package nxcSocialNetworks
- * @class   nxcSocialNetworksPublishHanlder
+ * @class   nxcSocialNetworksPublishHandler
  * @author  Serhey Dolgushev <serhey.dolgushev@nxc.no>
  * @date    21 Sep 2012
  **/
 
-class nxcSocialNetworksPublishHanlder extends eZPersistentObject
+class nxcSocialNetworksPublishHandler extends eZPersistentObject
 {
 	protected $name = null;
 
