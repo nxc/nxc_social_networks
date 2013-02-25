@@ -73,7 +73,7 @@ if( $object instanceof eZContentObject === false ) {
 		array(
 			'parent_node_id'   => $ini->variable( 'UserSettings', 'DefaultUserPlacement' ),
 			'class_identifier' => $userClass->attribute( 'identifier' ),
-			'creator_id'       => $ini->variable( 'UserSettings', 'UserClassID' ),
+			'creator_id'       => $ini->variable( 'UserSettings', 'UserCreatorID' ),
 			'section_id'       => $ini->variable( 'UserSettings', 'DefaultSectionID' ),
 			'remote_id'        => $uniqueIdentifier == 'remote_id' ? $remoteID : null,
 			'attributes'       => $attributes
