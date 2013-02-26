@@ -138,15 +138,23 @@ if( $object instanceof eZContentObject ) {
 	if( $user instanceof eZUser ) {
 		$user->loginCurrent();
 
+		// We can not use state for FB, because it uses it to defense against CSRF attacks
 		if( $http->hasGetVariable( 'login_redirect_url' ) ) {
 			$redirectURI = $http->getVariable( 'login_redirect_url' );
-		} elseif( $http->hasGetVariable( 'state' ) ) {
+		} elseif(
+			$handler instanceof nxcSocialNetworksLoginHandlerFacebook === false
+			&& $http->hasGetVariable( 'state' )
+		) {
 			$redirectURI = base64_decode( $http->getVariable( 'state' ) );
 		} elseif( $http->hasSessionVariable( 'LastAccessesURI' ) && $http->sessionVariable( 'LastAccessesURI' ) !== '' ) {
 			$redirectURI = $http->sessionVariable( 'LastAccessesURI' );
 		} elseif( ( $refferer = eZSys::serverVariable( 'HTTP_REFERER', true ) ) !== null ) {
 			$redirectURI = $refferer;
 		} else {
+			$redirectURI = $ini->variable( 'SiteSettings', 'DefaultPage' );
+		}
+
+		if( strpos( $redirectURI, 'user/login' ) !== false ) {
 			$redirectURI = $ini->variable( 'SiteSettings', 'DefaultPage' );
 		}
 
