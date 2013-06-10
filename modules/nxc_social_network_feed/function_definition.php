@@ -37,6 +37,34 @@ $FunctionList['twitter_timeline'] = array(
 	)
 );
 /**
+ * @see
+ * - https://dev.twitter.com/docs/api/1.1/get/statuses/mentions_timeline
+ * - https://dev.twitter.com/docs/api/1.1/get/statuses/user_timeline
+ * - https://dev.twitter.com/docs/api/1.1/get/statuses/home_timeline
+ **/
+$FunctionList['twitter_search'] = array(
+	'name'           => 'twitter_search',
+	'call_method'    => array(
+		'class'  => 'nxcSocialNetworksFeedTwitter',
+		'method' => 'getSearch'
+	),
+	'parameter_type' => 'standard',
+	'parameters'     => array(
+		array(
+			'name'     => 'query',
+			'type'     => 'string',
+			'required' => true,
+			'default'  => ''
+		),
+		array(
+			'name'     => 'parameters',
+			'type'     => 'array',
+			'required' => false,
+			'default'  => array()
+		)
+	)
+);
+/**
  * @see https://dev.twitter.com/docs/api/1.1/get/users/show
  **/
 $FunctionList['twitter_user_info'] = array(
