@@ -90,13 +90,14 @@ class nxcSocialNetworksFeedTwitter extends nxcSocialNetworksFeed
 	public function getSearch( $query = '', array $parameters = array() ) {
 		$result = array( 'result' => array() );
 
-		$accumulator = $this->debugAccumulatorGroup . '_twitter_search_' . $type;
+		$accumulator = $this->debugAccumulatorGroup . '_twitter_search';
 		eZDebug::accumulatorStart(
 			$accumulator,
 			$this->debugAccumulatorGroup,
 			'search'
 		);
 
+		$parameters = array_merge( array( 'q' => $query ), $parameters );
 		$cacheFileHandler   = $this->getCacheFileHandler( 'search', $parameters );
 
 		try{
@@ -104,8 +105,7 @@ class nxcSocialNetworksFeedTwitter extends nxcSocialNetworksFeed
 				eZDebug::writeDebug( 'search', self::$debugMessagesGroup );
 				eZDebug::writeDebug( $parameters, self::$debugMessagesGroup );
 
-				$response = $this->API->get( 'search/tweets', array_merge( array( 'q' => $query ), $parameters ) );
-
+				$response = $this->API->get( 'search/tweets', $parameters );
 				$errorKeys = array( 'error', 'errors' );
 				foreach( $errorKeys as $errorKey ) {
 					if( isset( $response->{$errorKey} ) ) {
