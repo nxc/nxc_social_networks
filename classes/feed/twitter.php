@@ -87,6 +87,63 @@ class nxcSocialNetworksFeedTwitter extends nxcSocialNetworksFeed
 		}
 	}
 
+	public function getSearch( $query = '', array $parameters = array() ) {
+		$result = array( 'result' => array() );
+
+		$accumulator = $this->debugAccumulatorGroup . '_twitter_search';
+		eZDebug::accumulatorStart(
+			$accumulator,
+			$this->debugAccumulatorGroup,
+			'search/tweets'
+		);
+
+		$parameters = array_merge( array( 'q' => $query ), $parameters );
+		$cacheFileHandler   = $this->getCacheFileHandler( 'search', $parameters );
+
+		try{
+			if( $this->isCacheExpired( $cacheFileHandler ) ) {
+				eZDebug::writeDebug( 'search', self::$debugMessagesGroup );
+				eZDebug::writeDebug( $parameters, self::$debugMessagesGroup );
+
+				$response = $this->API->get( 'search/tweets', $parameters );
+
+				$errorKeys = array( 'error', 'errors' );
+				foreach( $errorKeys as $errorKey ) {
+					if( isset( $response->{$errorKey} ) ) {
+						eZDebug::writeError( $response->{$errorKey}, self::$debugMessagesGroup );
+						return $result;
+					}
+				}
+
+				$statuses    = array();
+				$currentTime = time();
+
+				foreach( $response->statuses as $status ) {
+					$createdAt = strtotime( $status->created_at );
+
+					$status = self::objectToArray( $status );
+					$status['created_timestamp'] = $createdAt;
+					$status['created_ago']       = self::getCreatedAgoString( $createdAt, $currentTime );
+					$status['text']              = self::fixStatusLinks( $status['text'] );
+
+					$statuses[] = $status;
+				}
+
+				$cacheFileHandler->fileStoreContents( $cacheFileHandler->filePath, serialize( $statuses ) );
+			} else {
+				$statuses = unserialize( $cacheFileHandler->fetchContents() );
+			}
+
+			eZDebug::accumulatorStop( $accumulator );
+			$result['result'] = $statuses;
+			return $result;
+		} catch( Exception $e ) {
+			eZDebug::accumulatorStop( $accumulator );
+			eZDebug::writeError( $e, self::$debugMessagesGroup );
+			return $result;
+		}
+	}
+
 	public function getUserInfo() {
 		$result = array( 'result' => array() );
 
