@@ -94,7 +94,7 @@ class nxcSocialNetworksFeedTwitter extends nxcSocialNetworksFeed
 		eZDebug::accumulatorStart(
 			$accumulator,
 			$this->debugAccumulatorGroup,
-			'search'
+			'search/tweets'
 		);
 
 		$parameters = array_merge( array( 'q' => $query ), $parameters );
@@ -106,6 +106,7 @@ class nxcSocialNetworksFeedTwitter extends nxcSocialNetworksFeed
 				eZDebug::writeDebug( $parameters, self::$debugMessagesGroup );
 
 				$response = $this->API->get( 'search/tweets', $parameters );
+
 				$errorKeys = array( 'error', 'errors' );
 				foreach( $errorKeys as $errorKey ) {
 					if( isset( $response->{$errorKey} ) ) {
@@ -116,7 +117,8 @@ class nxcSocialNetworksFeedTwitter extends nxcSocialNetworksFeed
 
 				$statuses    = array();
 				$currentTime = time();
-				foreach( $response as $status ) {
+
+				foreach( $response->statuses as $status ) {
 					$createdAt = strtotime( $status->created_at );
 
 					$status = self::objectToArray( $status );
