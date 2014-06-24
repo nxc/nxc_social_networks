@@ -75,7 +75,7 @@ class nxcSocialNetworksFeedFacebook extends nxcSocialNetworksFeed
 			return $result;
 		} catch( Exception $e ) {
 			eZDebug::accumulatorStop( $accumulator );
-			eZDebug::writeError( $e, self::$debugMessagesGroup );
+			eZDebug::writeError( $e->getMessage(), self::$debugMessagesGroup );
 			return $result;
 		}
 	}
