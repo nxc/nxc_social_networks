@@ -28,9 +28,9 @@ class nxcSocialNetworksPublishType extends eZWorkflowEventType
 		}
 
 		$dataMap  = $object->attribute( 'data_map' );
-		$hanlders = $event->attribute( 'handlers' );
-		foreach( $hanlders as $hanlder ) {
-			$options = $hanlder->getOptions();
+		$handlers = $event->attribute( 'handlers' );
+		foreach( $handlers as $handler ) {
+			$options = $handler->getOptions();
 			if(
 				isset( $options['publish_only_on_create'] )
 				&& (bool) $options['publish_only_on_create'] === true
@@ -39,7 +39,7 @@ class nxcSocialNetworksPublishType extends eZWorkflowEventType
 				continue;
 			}
 
-			$classAttributeIDs = $hanlder->attribute( 'classattribute_ids' );
+			$classAttributeIDs = $handler->attribute( 'classattribute_ids' );
 			foreach( $classAttributeIDs as $classAttributeID ) {
 				$classAttribute = eZContentClassAttribute::fetch( $classAttributeID, false );
 				if( $classAttribute['contentclass_id'] != $object->attribute( 'contentclass_id' ) ) {
@@ -57,15 +57,15 @@ class nxcSocialNetworksPublishType extends eZWorkflowEventType
 					continue;
 				}
 
-				$accumulator = 'nxc_social_networks_publish_to_' . $hanlder->attribute( 'type' );
+				$accumulator = 'nxc_social_networks_publish_to_' . $handler->attribute( 'type' );
 				eZDebug::accumulatorStart(
 					$accumulator,
 					'nxc_social_networks_publish',
-					'Publishing message to ' . $hanlder->attribute( 'name' )
+					'Publishing message to ' . $handler->attribute( 'name' )
 				);
 
 				try{
-					$hanlder->publish( $object, $attributeContent );
+					$handler->publish( $object, $attributeContent );
 				} catch( Exception $e ) {
 					eZDebug::writeError( $e->getMessage(), 'NXC Social Networks Publish' );
 				}
@@ -89,14 +89,14 @@ class nxcSocialNetworksPublishType extends eZWorkflowEventType
 	public function attributeDecoder( $event, $attr ) {
 		switch( $attr ) {
 			case 'handlers': {
-				return nxcSocialNetworksPublishHanlder::fetchList( $event->attribute( 'id' ) );
+				return nxcSocialNetworksPublishHandler::fetchList( $event->attribute( 'id' ) );
 			}
 			case 'available_handler_names': {
 				if( count( self::$handlerNames ) === 0 ) {
-					$types = nxcSocialNetworksPublishHanlder::getTypes();
-					foreach( $types as $type => $hanlderClass ) {
+					$types = nxcSocialNetworksPublishHandler::getTypes();
+					foreach( $types as $type => $handlerClass ) {
 						try {
-							$handler = new $hanlderClass( array() );
+							$handler = new $handlerClass( array() );
 							self::$handlerNames[ $type ] = $handler->attribute( 'name' );
 							unset( $handler );
 						} catch( Exception $e ) {}
@@ -154,7 +154,7 @@ class nxcSocialNetworksPublishType extends eZWorkflowEventType
 
 				if( isset( $newAttributeIDs[ $handlerID ] ) ) {
 					try{
-						$handler = nxcSocialNetworksPublishHanlder::fetch( $handlerID );
+						$handler = nxcSocialNetworksPublishHandler::fetch( $handlerID );
 						$handler->addClassAttributeID( (int) $newAttributeIDs[ $handlerID ] );
 						$handler->store();
 					} catch( Exception $e ) {
@@ -172,7 +172,7 @@ class nxcSocialNetworksPublishType extends eZWorkflowEventType
 						$type = $http->postVariable( $var );
 
 						try{
-							$handler = nxcSocialNetworksPublishHanlder::newInstance( $type );
+							$handler = nxcSocialNetworksPublishHandler::newInstance( $type );
 							$handler->setAttribute( 'workflow_event_id', $event->attribute( 'id' ) );
 							$handler->store();
 						} catch( Exception $e ) {
@@ -186,9 +186,9 @@ class nxcSocialNetworksPublishType extends eZWorkflowEventType
 				case 'remove_handler': {
 					$var = 'WorkflowEvent_event_nxcsocialnetworkspublish_remove_handler_' . $event->attribute( 'id' );
 					if( $http->hasPostVariable( $var ) ) {
-						$handler = nxcSocialNetworksPublishHanlder::fetch( $http->postVariable( $var ) );
+						$handler = nxcSocialNetworksPublishHandler::fetch( $http->postVariable( $var ) );
 						if(
-							$handler instanceof nxcSocialNetworksPublishHanlder
+							$handler instanceof nxcSocialNetworksPublishHandler
 							&& (int) $handler->attribute( 'workflow_event_id' ) === (int) $event->attribute( 'id' )
 						) {
 							$handler->remove();
@@ -204,9 +204,9 @@ class nxcSocialNetworksPublishType extends eZWorkflowEventType
 						$data        = explode( '|', $http->postVariable( $var ) );
 						$handlerID   = $data[0];
 						$attributeID = $data[1];
-						$handler     = nxcSocialNetworksPublishHanlder::fetch( $handlerID );
+						$handler     = nxcSocialNetworksPublishHandler::fetch( $handlerID );
 						if(
-							$handler instanceof nxcSocialNetworksPublishHanlder
+							$handler instanceof nxcSocialNetworksPublishHandler
 							&& (int) $handler->attribute( 'workflow_event_id' ) === (int) $event->attribute( 'id' )
 						) {
 							$handler->removeClassAttributeID( $attributeID );

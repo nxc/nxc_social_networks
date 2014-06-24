@@ -25,21 +25,21 @@ if(
 
 // Get handler
 try{
-	$hanlder = nxcSocialNetworksLoginHanlder::getInstanceByType( $Params['type'] );
+	$handler = nxcSocialNetworksLoginHandler::getInstanceByType( $Params['type'] );
 } catch( Exception $e ) {
 	eZDebug::writeError( $e->getMessage(), 'NXC Social Networks Login' );
 	return $module->handleError( eZError::KERNEL_NOT_FOUND, 'kernel' );
 }
 // Get user`s remote ID
 try{
-	$remoteID = $hanlder->getUserRemoteID();
+	$remoteID = $handler->getUserRemoteID();
 } catch( Exception $e ) {
 	eZDebug::writeError( $e->getMessage(), 'NXC Social Networks Login' );
 	return $module->handleError( eZError::KERNEL_NOT_FOUND, 'kernel' );
 }
 // Get user`s attributes
 try{
-	$attributes = $hanlder->getUserData();
+	$attributes = $handler->getUserData();
 } catch( Exception $e ) {
 	eZDebug::writeError( $e->getMessage(), 'NXC Social Networks Login' );
 	return $module->handleError( eZError::KERNEL_NOT_FOUND, 'kernel' );
@@ -47,7 +47,7 @@ try{
 
 // Trying to fetch current user from eZ Publish
 $object = false;
-$uniqueIdentifier = nxcSocialNetworksLoginHanlder::getUniqueIdentifier();
+$uniqueIdentifier = nxcSocialNetworksLoginHandler::getUniqueIdentifier();
 if( $uniqueIdentifier == 'email' ) {
 	$account = explode( '|', $attributes['user_account'] );
 	if( isset( $account[1] ) ) {
@@ -73,7 +73,7 @@ if( $object instanceof eZContentObject === false ) {
 		array(
 			'parent_node_id'   => $ini->variable( 'UserSettings', 'DefaultUserPlacement' ),
 			'class_identifier' => $userClass->attribute( 'identifier' ),
-			'creator_id'       => $ini->variable( 'UserSettings', 'UserClassID' ),
+			'creator_id'       => $ini->variable( 'UserSettings', 'UserCreatorID' ),
 			'section_id'       => $ini->variable( 'UserSettings', 'DefaultSectionID' ),
 			'remote_id'        => $uniqueIdentifier == 'remote_id' ? $remoteID : null,
 			'attributes'       => $attributes
@@ -138,15 +138,23 @@ if( $object instanceof eZContentObject ) {
 	if( $user instanceof eZUser ) {
 		$user->loginCurrent();
 
+		// We can not use state for FB, because it uses it to defense against CSRF attacks
 		if( $http->hasGetVariable( 'login_redirect_url' ) ) {
 			$redirectURI = $http->getVariable( 'login_redirect_url' );
-		} elseif( $http->hasGetVariable( 'state' ) ) {
+		} elseif(
+			$handler instanceof nxcSocialNetworksLoginHandlerFacebook === false
+			&& $http->hasGetVariable( 'state' )
+		) {
 			$redirectURI = base64_decode( $http->getVariable( 'state' ) );
 		} elseif( $http->hasSessionVariable( 'LastAccessesURI' ) && $http->sessionVariable( 'LastAccessesURI' ) !== '' ) {
 			$redirectURI = $http->sessionVariable( 'LastAccessesURI' );
 		} elseif( ( $refferer = eZSys::serverVariable( 'HTTP_REFERER', true ) ) !== null ) {
 			$redirectURI = $refferer;
 		} else {
+			$redirectURI = $ini->variable( 'SiteSettings', 'DefaultPage' );
+		}
+
+		if( strpos( $redirectURI, 'user/login' ) !== false ) {
 			$redirectURI = $ini->variable( 'SiteSettings', 'DefaultPage' );
 		}
 

@@ -9,22 +9,22 @@ OAuth2[twitter]=nxcSocialNetworksOAuth2Twitter
 OAuth2[linkedin]=nxcSocialNetworksOAuth2LinkedIn
 OAuth2[google]=nxcSocialNetworksOAuth2Google
 
-LoginHandlers[facebook]=nxcSocialNetworksLoginHanlderFacebook
-LoginHandlers[twitter]=nxcSocialNetworksLoginHanlderTwitter
-LoginHandlers[linkedin]=nxcSocialNetworksLoginHanlderLinkedIn
-LoginHandlers[google]=nxcSocialNetworksLoginHanlderGoogle
+LoginHandlers[facebook]=nxcSocialNetworksLoginHandlerFacebook
+LoginHandlers[twitter]=nxcSocialNetworksLoginHandlerTwitter
+LoginHandlers[linkedin]=nxcSocialNetworksLoginHandlerLinkedIn
+LoginHandlers[google]=nxcSocialNetworksLoginHandlerGoogle
 
-PublishHandlers[facebook]=nxcSocialNetworksPublishHanlderFacebook
-PublishHandlers[twitter]=nxcSocialNetworksPublishHanlderTwitter
-PublishHandlers[linkedin]=nxcSocialNetworksPublishHanlderLinkedIn
+PublishHandlers[facebook]=nxcSocialNetworksPublishHandlerFacebook
+PublishHandlers[twitter]=nxcSocialNetworksPublishHandlerTwitter
+PublishHandlers[linkedin]=nxcSocialNetworksPublishHandlerLinkedIn
 
 # New application can be created at https://developers.facebook.com/apps
 # Set the following application settings
 # - Basic info > App Domains = yoursite.com
 # - Website with Facebook Login > Site URL = yoursite.com
 [FacebookApplication]
-Key=157950161011566
-Secret=1cabbae607a99a346482f655845a49fd
+Key=143260445738456
+Secret=a00a3aec0c7bebb97b57f93800b2dab1
 
 # New application can be created at https://dev.twitter.com/apps/new
 # Set the following application settings
@@ -47,6 +47,6 @@ $ 1. Go to https://code.google.com/apis/console > Services and enable "Google+ A
 # http://path_to_your_ezp_admin_siteaccess/nxc_social_network_token/get_access_token/google
 # http://yoursite.com/nxc_social_network_login/callback/google ogle
 [GoogleApplication]
-Key=73620309723-2mhrhgjd76qbe40ovtv1ao4s63b0c606.apps.googleusercontent.com
-Secret=3qzEo880hnTuQEeZKCJ9Y9Ra
+Key=888150503182-2cqci1lfo3tjacej6mnd0rk95nkur7u7.apps.googleusercontent.com
+Secret=iM6a7XhOF1fClnUoNvyEOqkH
 */ ?>

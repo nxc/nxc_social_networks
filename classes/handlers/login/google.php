@@ -1,12 +1,12 @@
 <?php
 /**
  * @package nxcSocialNetworks
- * @class   nxcSocialNetworksLoginHanlderGoogle
+ * @class   nxcSocialNetworksLoginHandlerGoogle
  * @author  Serhey Dolgushev <serhey.dolgushev@nxc.no>
  * @date    24 Sep 2012
  **/
 
-class nxcSocialNetworksLoginHanlderGoogle extends nxcSocialNetworksLoginHanlder
+class nxcSocialNetworksLoginHandlerGoogle extends nxcSocialNetworksLoginHandler
 {
 	private $profile = null;
 

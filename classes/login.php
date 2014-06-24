@@ -1,12 +1,12 @@
 <?php
 /**
  * @package nxcSocialNetworks
- * @class   nxcSocialNetworksLoginHanlder
+ * @class   nxcSocialNetworksLoginHandler
  * @author  Serhey Dolgushev <serhey.dolgushev@nxc.no>
  * @date    16 Sep 2012
  **/
 
-abstract class nxcSocialNetworksLoginHanlder extends nxcSocialNetworksBase
+abstract class nxcSocialNetworksLoginHandler extends nxcSocialNetworksBase
 {
 	protected static $typeSettingsGroup = 'LoginHandlers';
 
