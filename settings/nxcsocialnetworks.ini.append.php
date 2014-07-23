@@ -8,6 +8,7 @@ OAuth2[facebook]=nxcSocialNetworksOAuth2Facebook
 OAuth2[twitter]=nxcSocialNetworksOAuth2Twitter
 OAuth2[linkedin]=nxcSocialNetworksOAuth2LinkedIn
 OAuth2[google]=nxcSocialNetworksOAuth2Google
+OAuth2[instagram]=nxcSocialNetworksOAuth2Instagram
 
 LoginHandlers[facebook]=nxcSocialNetworksLoginHandlerFacebook
 LoginHandlers[twitter]=nxcSocialNetworksLoginHandlerTwitter
@@ -49,4 +50,11 @@ $ 1. Go to https://code.google.com/apis/console > Services and enable "Google+ A
 [GoogleApplication]
 Key=888150503182-2cqci1lfo3tjacej6mnd0rk95nkur7u7.apps.googleusercontent.com
 Secret=iM6a7XhOF1fClnUoNvyEOqkH
+
+# http://instagram.com/developer/clients/manage/
+# 'CLIENT ID' and	'CLIENT SECRET' are 'Key' and 'Secret'
+[InstagramApplication]
+Key=3c83de65fba447a0a2966f2db0645d9f
+Secret=ed8b5921241845a1b8c325e1dacf4aaf
+
 */ ?>
