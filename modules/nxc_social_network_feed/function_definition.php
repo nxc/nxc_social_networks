@@ -166,4 +166,27 @@ $FunctionList['google_activities_search'] = array(
 	)
 );
 
+$FunctionList['instagram_media_recent'] = array(
+	'name'           => 'instagram_media_recent',
+	'call_method'    => array(
+		'class'  => 'nxcSocialNetworksFeedInstagram',
+		'method' => 'getMediaRecent'
+	),
+	'parameter_type' => 'standard',
+	'parameters'       => array(
+		array(
+			'name'     => 'page_id',
+			'type'     => 'string',
+			'required' => false,
+			'default'  => false
+		),
+		array(
+			'name'     => 'limit',
+			'type'     => 'int',
+			'required' => false,
+			'default'  => 20
+		)
+	)
+);
+
 ?>
