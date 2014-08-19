@@ -50,9 +50,14 @@ class nxcSocialNetworksFeedInstagram extends nxcSocialNetworksFeed
 
 				if( $userData !== false ) {
 					$userDataArray = json_decode( $userData, true );
-					if( isset( $userDataArray[ 'data' ][ 0 ] ) && $userDataArray[ 'data' ][ 0 ][ 'username' ] == $pageID ) {
-						$userID = $userDataArray[ 'data' ][ 0 ][ 'id' ];
-					}
+          if( count( $userDataArray[ 'data' ] ) ) {
+            foreach( $userDataArray[ 'data' ] as $user ) {
+              if( $user[ 'username' ] == $pageID ) {
+                $userID = $user[ 'id' ];
+                break;
+              }
+            }
+          }
 				}
 
 				if( $userID !== false ) {
