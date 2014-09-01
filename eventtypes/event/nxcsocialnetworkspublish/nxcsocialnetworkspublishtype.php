@@ -230,7 +230,7 @@ class nxcSocialNetworksPublishType extends eZWorkflowEventType
 
 		$affectedClassIDs = array();
 
-		$optionNames = array( 'publish_only_on_create', 'include_url' );
+		$optionNames = array( 'publish_only_on_create', 'include_url', 'shorten_url' );
 		$options     = array();
 		$var         = 'WorkflowEvent_event_nxcsocialnetworkspublish_handler_options';
 		if( $http->hasPostVariable( $var ) ) {

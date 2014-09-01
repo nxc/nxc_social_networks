@@ -19,6 +19,14 @@ PublishHandlers[facebook]=nxcSocialNetworksPublishHandlerFacebook
 PublishHandlers[twitter]=nxcSocialNetworksPublishHandlerTwitter
 PublishHandlers[linkedin]=nxcSocialNetworksPublishHandlerLinkedIn
 
+LinkShortenHandlerToUse=is.gd
+LinkShortenHandlers[is.gd]=nxcSocialNetworksLinkShortenHandlerIsgd
+LinkShortenHandlers[to.ly]=nxcSocialNetworksLinkShortenHandlerToly
+LinkShortenHandlers[v.gd]=nxcSocialNetworksLinkShortenHandlerVgd
+LinkShortenHandlers[goo.gl]=nxcSocialNetworksLinkShortenHandlerGoogl
+LinkShortenHandlers[bit.ly]=nxcSocialNetworksLinkShortenHandlerBitly
+LinkShortenHandlers[ow.ly]=nxcSocialNetworksLinkShortenHandlerOwly
+
 # New application can be created at https://developers.facebook.com/apps
 # Set the following application settings
 # - Basic info > App Domains = yoursite.com
@@ -56,5 +64,14 @@ Secret=iM6a7XhOF1fClnUoNvyEOqkH
 [InstagramApplication]
 Key=3c83de65fba447a0a2966f2db0645d9f
 Secret=ed8b5921241845a1b8c325e1dacf4aaf
+
+[LinkShortenHandlerGoogl]
+ApiKey=Dxx-MxSoVcbDXTbZ3FPgn7nQAIzaSyDKdBUy54T
+
+[LinkShortenHandlerBitly]
+GenericAccessToken=63e589dd207b324aa19aa9169fa7d7be14c103ca
+
+[LinkShortenHandlerOwly]
+ApiKey=CfsrIVeqilTuOYTNtrl2v
 
 */ ?>

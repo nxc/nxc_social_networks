@@ -1,0 +1,6 @@
+[submodule "classes/bitly-api-php"]
+	path = classes/bitly-api-php
+	url = git@github.com:jsocol/bitly-api-php.git
+[submodule "classes/owly-api-php"]
+	path = classes/owly-api-php
+	url = git@github.com:invokemedia/owly-api-php.git

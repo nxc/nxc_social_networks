@@ -10,6 +10,8 @@ class nxcSocialNetworksPublishHandler extends eZPersistentObject
 {
 	protected $name = null;
 
+	public $shortenService = false;
+
 	public static function definition() {
 		return array(
 			'fields'              => array(
@@ -183,6 +185,12 @@ class nxcSocialNetworksPublishHandler extends eZPersistentObject
 
 	protected function getAPI() {
 		return false;
+	}
+
+	public function shorten( $url ) {
+		$this->shortenService = new nxcSocialNetworksLinkShortenHandler();
+
+		return $this->shortenService->shorten( $url );
 	}
 }
 ?>
