@@ -10,12 +10,14 @@ class nxcSocialNetworksLinkShortenHandlerToly extends nxcSocialNetworksLinkShort
 {
 	public $serviceCallUrl = "http://to.ly/api.php?longurl=";
 
-	public function __construct() {}
-
 	public function shorten( $url ) {
 		$call = $this->serviceCallUrl . urlencode( $url );
 
-		return $this->shortenUrl( $call );
+		$shortUrl = $this->shortenUrl( $call );
+
+		eZDebug::writeDebug( "Shortened {$url} to {$shortUrl}", __METHOD__ );
+
+		return $shortUrl;
 	}
 }
 ?>

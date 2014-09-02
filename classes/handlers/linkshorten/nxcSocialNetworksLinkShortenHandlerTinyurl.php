@@ -10,12 +10,13 @@ class nxcSocialNetworksLinkShortenHandlerTinyurl extends nxcSocialNetworksLinkSh
 {
 	public $serviceCallUrl = "http://tinyurl.com/api-create.php?url=";
 
-	public function __construct() {}
-
 	public function shorten( $url ) {
 		$call = $this->serviceCallUrl . urlencode( $url );
+		$shortUrl = $this->shortenUrl( $call );
 
-		return $this->shortenUrl( $call );
+		eZDebug::writeDebug( "Shortened {$url} to {$shortUrl}", __METHOD__ );
+
+		return $shortUrl;
 	}
 }
 

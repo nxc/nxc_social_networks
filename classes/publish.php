@@ -188,9 +188,7 @@ class nxcSocialNetworksPublishHandler extends eZPersistentObject
 	}
 
 	public function shorten( $url ) {
-		$this->shortenService = new nxcSocialNetworksLinkShortenHandler();
-
-		return $this->shortenService->shorten( $url );
+		return nxcSocialNetworksLinkShortenHandler::instance()->shorten( $url );
 	}
 }
 ?>
