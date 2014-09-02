@@ -10,12 +10,12 @@ class nxcSocialNetworksLinkShortenHandlerVgd extends nxcSocialNetworksLinkShorte
 {
 	public $serviceCallUrl = "http://v.gd/create.php?format=simple&url=";
 
-    public function __construct() {}
+	public function __construct() {}
 
-    public function shorten( $url ) {
-        $call = $this->serviceCallUrl . urlencode( $url );
+	public function shorten( $url ) {
+		$call = $this->serviceCallUrl . urlencode( $url );
 
-        return $this->shortenUrl( $call );
-    }
+		return $this->shortenUrl( $call );
+	}
 }
 ?>
