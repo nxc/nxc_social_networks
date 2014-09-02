@@ -19,14 +19,14 @@ PublishHandlers[facebook]=nxcSocialNetworksPublishHandlerFacebook
 PublishHandlers[twitter]=nxcSocialNetworksPublishHandlerTwitter
 PublishHandlers[linkedin]=nxcSocialNetworksPublishHandlerLinkedIn
 
-LinkShortenHandlerToUse=is.gd
+LinkShortenHandlerDefault=goo.gl
+LinkShortenHandlers[goo.gl]=nxcSocialNetworksLinkShortenHandlerGoogl
 LinkShortenHandlers[is.gd]=nxcSocialNetworksLinkShortenHandlerIsgd
-LinkShortenHandlers[to.ly]=nxcSocialNetworksLinkShortenHandlerToly
 LinkShortenHandlers[v.gd]=nxcSocialNetworksLinkShortenHandlerVgd
 LinkShortenHandlers[tinyurl.com]=nxcSocialNetworksLinkShortenHandlerTinyurl
-LinkShortenHandlers[goo.gl]=nxcSocialNetworksLinkShortenHandlerGoogl
 LinkShortenHandlers[bit.ly]=nxcSocialNetworksLinkShortenHandlerBitly
 LinkShortenHandlers[ow.ly]=nxcSocialNetworksLinkShortenHandlerOwly
+LinkShortenHandlers[to.ly]=nxcSocialNetworksLinkShortenHandlerToly
 
 # New application can be created at https://developers.facebook.com/apps
 # Set the following application settings
@@ -71,7 +71,7 @@ Secret=ed8b5921241845a1b8c325e1dacf4aaf
 # 3. Go to https://code.google.com/apis/console > APIs & auth, click "Credentials", click "Create new Key", click "Server key", click "Create"
 # 4. Take the displayed "API KEY" and place the key text into [LinkShortenHandlerGoogl] ApiKey setting bellow:
 [LinkShortenHandlerGoogl]
-ApiKey=Dxx-MxSoVcbDXTbZ3FPgn7nQAIzaSyDKdBUy54T
+ApiKey=
 
 # 1. Go to https://bitly.com/a/sign_in > Sign-in or Create a new account
 # 2. Go to https://bitly.com/a/oauth_apps > Generic Access Token, enter your account password in the "Confirm password" field, click "Generate Token"
