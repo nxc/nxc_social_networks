@@ -23,6 +23,7 @@ LinkShortenHandlerToUse=is.gd
 LinkShortenHandlers[is.gd]=nxcSocialNetworksLinkShortenHandlerIsgd
 LinkShortenHandlers[to.ly]=nxcSocialNetworksLinkShortenHandlerToly
 LinkShortenHandlers[v.gd]=nxcSocialNetworksLinkShortenHandlerVgd
+LinkShortenHandlers[tinyurl.com]=nxcSocialNetworksLinkShortenHandlerTinyurl
 LinkShortenHandlers[goo.gl]=nxcSocialNetworksLinkShortenHandlerGoogl
 LinkShortenHandlers[bit.ly]=nxcSocialNetworksLinkShortenHandlerBitly
 LinkShortenHandlers[ow.ly]=nxcSocialNetworksLinkShortenHandlerOwly
