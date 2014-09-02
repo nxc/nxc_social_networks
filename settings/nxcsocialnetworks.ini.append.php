@@ -50,8 +50,8 @@ Secret=jD81UH24wXP9f8UscgQbqaqVzbHIxKagadb5BZCwcg
 Key=54b5bpmfccwh
 Secret=AcfsXn0pKjntiXzV
 
-$ 1. Go to https://code.google.com/apis/console > Services and enable "Google+ API"
-# 2. Go to https://code.google.com/apis/console > API Access  and click on "Create an OAuth2 client ID"
+# 1. Go to https://code.google.com/apis/console > Services and enable "Google+ API"
+# 2. Go to https://code.google.com/apis/console > API Access and click on "Create an OAuth2 client ID"
 # Set the following application setting
 # - Client ID for web applications > Redirect URIs:
 # http://path_to_your_ezp_admin_siteaccess/nxc_social_network_token/get_access_token/google
@@ -66,12 +66,22 @@ Secret=iM6a7XhOF1fClnUoNvyEOqkH
 Key=3c83de65fba447a0a2966f2db0645d9f
 Secret=ed8b5921241845a1b8c325e1dacf4aaf
 
+# 1. Go to https://code.google.com/apis/console > Projects and click "Create Project" and complete form
+# 2. Go to https://code.google.com/apis/console > Projects, click your project, click "Enable an API", click "Off" on "URL Shortener API"
+# 3. Go to https://code.google.com/apis/console > APIs & auth, click "Credentials", click "Create new Key", click "Server key", click "Create"
+# 4. Take the displayed "API KEY" and place the key text into [LinkShortenHandlerGoogl] ApiKey setting bellow:
 [LinkShortenHandlerGoogl]
 ApiKey=Dxx-MxSoVcbDXTbZ3FPgn7nQAIzaSyDKdBUy54T
 
+# 1. Go to https://bitly.com/a/sign_in > Sign-in or Create a new account
+# 2. Go to https://bitly.com/a/oauth_apps > Generic Access Token, enter your account password in the "Confirm password" field, click "Generate Token"
+# 3. Take the displayed "Generic Access Token" and place the key text into [LinkShortenHandlerBitly] GenericAccessToken setting bellow:
 [LinkShortenHandlerBitly]
 GenericAccessToken=63e589dd207b324aa19aa9169fa7d7be14c103ca
 
+# 1. Go to http://ow.ly/ > Click "Sign-in with Twitter"
+# 2. Go to http://ow.ly/user > Click "API Key"
+# 3. Take the displayed "Your Ow.ly API key is:" and place the key text into [LinkShortenHandlerOwly] ApiKey setting bellow:
 [LinkShortenHandlerOwly]
 ApiKey=CfsrIVeqilTuOYTNtrl2v
 
