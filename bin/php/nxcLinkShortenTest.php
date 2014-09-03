@@ -15,7 +15,7 @@ require 'autoload.php';
 
 $cli = eZCLI::instance();
 $script = eZScript::instance( array( 'description' => ( "NXC Social Networks Link Shortening Service Test Script\n\n" .
-														"nxcLinkShortenTest.php --url=http://google.com --service=goo.gl" ),
+														"nxcLinkShortenTest.php --url=https://google.com --service=goo.gl" ),
 									 'use-session' => false,
 									 'use-modules' => true,
 									 'use-extensions' => true,
@@ -25,7 +25,7 @@ $script->startup();
 
 $options = $script->getOptions( "[url;][service;][list-handlers;]",
 								"",
-								array( 'url' => 'Use this parameter to specify which url string to shorten. Example: ' . "'--url=https://google.com'" . ' is an optional parameter which defaults to string http://blog.nxcgroup.com',
+								array( 'url' => 'Use this parameter to specify which url string to shorten. Example: ' . "'--url=https://google.com'" . ' is an optional parameter which defaults to string https://google.com',
 									   'service' => 'Use this parameter to specify which url shortening service handler to use. Use the ' . "'--list-handlers'" . ' parameter for a list of handlers available. Example: ' . "'--service=goo.gl'" . ' is an optional parameter which defaults to value specified by the LinkShortenHandlerDefault ini setting ',
 									   'list-handlers' => 'Use this parameter to display which url shortening service handlers are available for use. Example: ' . "'--list-handlers'" . ' is an optional parameter which defaults to false'),
 								false,
@@ -34,7 +34,7 @@ $script->initialize();
 
 /** Test for required script arguments **/
 
-$url = isset( $options['url'] ) ? $options['url'] : 'http://blog.nxcgroup.com/';
+$url = isset( $options['url'] ) ? $options['url'] : 'https://google.com';
 
 $service = ( isset( $options['service'] ) && $options['service'] != ''
 			 && $options['service'] != 1 ) ? $options['service'] : eZINI::instance( 'nxcsocialnetworks.ini' )->variable( 'General', 'LinkShortenHandlerDefault' );
