@@ -10,8 +10,6 @@ class nxcSocialNetworksPublishHandler extends eZPersistentObject
 {
 	protected $name = null;
 
-	public $shortenService = false;
-
 	public static function definition() {
 		return array(
 			'fields'              => array(
