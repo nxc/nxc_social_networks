@@ -21,6 +21,17 @@ class nxcSocialNetworksPublishHandlerTwitter extends nxcSocialNetworksPublishHan
 		) {
 			$url = $object->attribute( 'main_node' )->attribute( 'url_alias' );
 			eZURI::transformURI( $url, true, 'full' );
+
+			if(
+				isset( $options['shorten_url'] )
+				&& (bool) $options['shorten_url'] === true
+			) {
+				$urlReturned = $this->shorten( $url );
+				if( is_string( $urlReturned ) ) {
+					$url = $urlReturned;
+				}
+			}
+
 			$messageLength = $messageLength - strlen( $url ) - 1;
 		}
 

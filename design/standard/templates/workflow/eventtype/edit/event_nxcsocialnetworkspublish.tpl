@@ -77,6 +77,9 @@
 						<label class="nxc-social-network-attribute-checkbox"><input type="checkbox" name="WorkflowEvent_event_nxcsocialnetworkspublish_handler_options[include_url][{$handler.id}]" value="1" {if $handler.options.include_url}checked="checked"{/if}/>
 						{'Include node`s URL'|i18n( 'extension/nxc_social_networks' )}</label>
 
+						<label class="nxc-social-network-attribute-checkbox"><input type="checkbox" name="WorkflowEvent_event_nxcsocialnetworkspublish_handler_options[shorten_url][{$handler.id}]" value="1" {if $handler.options.shorten_url}checked="checked"{/if}/>
+						{'Shorten node`s URL'|i18n( 'extension/nxc_social_networks' )}</label>
+
 						{if $handler.has_extra_options}
 							{include
 								uri=concat( 'design:', $handler.extra_options_edit_template )

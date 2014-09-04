@@ -38,6 +38,8 @@
 
 						<label class="nxc-social-network-attribute-checkbox">{'Include node`s URL'|i18n( 'extension/nxc_social_networks' )}: {if $handler.options.include_url}{'Yes'|i18n( 'extension/nxc_social_networks' )}{else}{'No'|i18n( 'extension/nxc_social_networks' )}{/if}</label>
 
+						<label class="nxc-social-network-attribute-checkbox">{'Shorten node`s URL'|i18n( 'extension/nxc_social_networks' )}: {if $handler.options.shorten_url}{'Yes'|i18n( 'extension/nxc_social_networks' )}{else}{'No'|i18n( 'extension/nxc_social_networks' )}{/if}</label>
+
 						{if $handler.has_extra_options}
 							{include
 								uri=concat( 'design:', $handler.extra_options_view_template )
