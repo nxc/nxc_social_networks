@@ -20,3 +20,4 @@ table.nxc-social-network-attribute-list { margin-bottom: 10px; }
 .nxc-social-network-attribute-controlbar { padding-bottom: 10px; }
 
 label.nxc-social-network-attribute-select { display: inline; }
+label.nxc-social-network-attribute-select-block { display: block; }

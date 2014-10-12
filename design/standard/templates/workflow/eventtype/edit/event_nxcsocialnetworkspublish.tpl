@@ -88,6 +88,16 @@
 							{/foreach}
 						</select>
 
+						<br />
+
+						<label class="nxc-social-network-attribute-select">{'Message Handler'|i18n( 'extension/nxc_social_networks' )}:</label>
+						<select name="WorkflowEvent_event_nxcsocialnetworkspublish_handler_options[message_handler][{$handler.id}]">
+							{if $handler.options.message_handler|eq( '' )}<option value="" selected>None</option>{/if}
+							{foreach $event.available_message_handler_names as $type => $name}
+								<option value="{$type}"{if $handler.options.message_handler|eq( $type )} selected{/if}>{$name}</option>
+							{/foreach}
+						</select>
+
 						{if $handler.has_extra_options}
 							{include
 								uri=concat( 'design:', $handler.extra_options_edit_template )

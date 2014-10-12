@@ -15,6 +15,9 @@ LoginHandlers[twitter]=nxcSocialNetworksLoginHandlerTwitter
 LoginHandlers[linkedin]=nxcSocialNetworksLoginHandlerLinkedIn
 LoginHandlers[google]=nxcSocialNetworksLoginHandlerGoogle
 
+MessageHandlers[default]=nxcSocialNetworksMessageHandlerDefault
+MessageHandlers[linkedin]=nxcSocialNetworksMessageHandlerLinkedIn
+
 PublishHandlers[facebook]=nxcSocialNetworksPublishHandlerFacebook
 PublishHandlers[twitter]=nxcSocialNetworksPublishHandlerTwitter
 PublishHandlers[linkedin]=nxcSocialNetworksPublishHandlerLinkedIn

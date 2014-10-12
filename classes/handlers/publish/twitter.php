@@ -14,35 +14,8 @@ class nxcSocialNetworksPublishHandlerTwitter extends nxcSocialNetworksPublishHan
 		$options = $this->getOptions();
 
 		$messageLength = 140;
-		$url = false;
-		if(
-			isset( $options['include_url'] )
-			&& (bool) $options['include_url'] === true
-		) {
-			$url = $object->attribute( 'main_node' )->attribute( 'url_alias' );
-			eZURI::transformURI( $url, true, 'full' );
 
-			if(
-				isset( $options['shorten_url'] )
-				&& (bool) $options['shorten_url'] === true
-			) {
-				$urlReturned = $this->shorten( $url, $options['shorten_handler'] );
-				if( is_string( $urlReturned ) ) {
-					$url = $urlReturned;
-				}
-			}
-
-			$messageLength = $messageLength - strlen( $url ) - 1;
-		}
-
-		if( class_exists( 'Normalizer' ) ) {
-			$message = Normalizer::normalize( $message, Normalizer::FORM_C );
-		}
-		$message = mb_substr( $message, 0, $messageLength );
-
-		if( $url ) {
-			$message .= ' ' . $url;
-		}
+		$message = $this->message( $this, $object, $message, $messageLength, $options, $options['message_handler'] );
 
 		$response = $this->getAPI()->post(
 			'statuses/update',

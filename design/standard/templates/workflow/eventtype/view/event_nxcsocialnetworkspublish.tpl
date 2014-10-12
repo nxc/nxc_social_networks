@@ -42,6 +42,8 @@
 
 						<label class="nxc-social-network-attribute-select">{'Shorten node`s URL Service'|i18n( 'extension/nxc_social_networks' )}: {if $handler.options.shorten_handler}{foreach $event.available_shorten_handler_names as $type => $name}{if $handler.options.shorten_handler|eq( $type )}{$name}{/if}{/foreach}{else}{'None'|i18n( 'extension/nxc_social_networks' )}{/if}</label>
 
+						<label class="nxc-social-network-attribute-select-block">{'Message Handler'|i18n( 'extension/nxc_social_networks' )}: {if $handler.options.message_handler}{foreach $event.available_message_handler_names as $type => $name}{if $handler.options.message_handler|eq( $type )}{$name}{/if}{/foreach}{else}{'Default'|i18n( 'extension/nxc_social_networks' )}{/if}</label>
+
 						{if $handler.has_extra_options}
 							{include
 								uri=concat( 'design:', $handler.extra_options_view_template )

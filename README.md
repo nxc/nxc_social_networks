@@ -19,8 +19,8 @@ Tutorials
 Version
 -------
 
-- The current version of NXC Social Networks is 1.1
-- Last Major update: September 1, 2014
+- The current version of NXC Social Networks is 1.2
+- Last Major update: October 12, 2014
 
 Copyright
 ---------
@@ -37,7 +37,7 @@ The complete license agreement is included in the doc/LICENSE file.
 
 NXC Social Networks is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License.
+the Free Software Foundation, version 2 of the License.
 
 NXC Social Networks is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
