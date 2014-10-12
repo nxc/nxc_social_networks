@@ -8,6 +8,7 @@
 
 class nxcSocialNetworksLinkShortenHandlerToly extends nxcSocialNetworksLinkShortenHandler
 {
+	public $name = "to.ly";
 	public $serviceCallUrl = "http://to.ly/api.php?longurl=";
 
 	public function shorten( $url ) {

@@ -8,6 +8,8 @@
 
 class nxcSocialNetworksLinkShortenHandlerOwly extends nxcSocialNetworksLinkShortenHandler
 {
+	public $name = "Ow.ly";
+
 	public function shorten( $url ) {
 		$shortUrl = false;
 		$owly = OwlyApi::factory( array( 'key' => eZINI::instance( 'nxcsocialnetworks.ini' )->variable( 'LinkShortenHandlerOwly', 'ApiKey' ) ) );

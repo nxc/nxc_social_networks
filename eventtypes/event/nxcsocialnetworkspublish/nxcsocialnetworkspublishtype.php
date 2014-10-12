@@ -10,8 +10,9 @@ class nxcSocialNetworksPublishType extends eZWorkflowEventType
 {
 	const TYPE_ID = 'nxcsocialnetworkspublish';
 
-	private static $classAttributes = array();
-	private static $handlerNames    = array();
+	private static $classAttributes     = array();
+	private static $handlerNames        = array();
+	private static $shortenHandlerNames = array();
 
 	public function __construct() {
 		$this->eZWorkflowEventType( self::TYPE_ID, 'Publish to Social Networks' );
@@ -81,6 +82,7 @@ class nxcSocialNetworksPublishType extends eZWorkflowEventType
 		return array(
 			'handlers',
 			'available_handler_names',
+			'available_shorten_handler_names',
 			'contentclass_attribute_list',
 			'affected_class_ids'
 		);
@@ -104,6 +106,20 @@ class nxcSocialNetworksPublishType extends eZWorkflowEventType
 				}
 
 				return self::$handlerNames;
+			}
+			case 'available_shorten_handler_names': {
+				if( count( self::$shortenHandlerNames ) === 0 ) {
+					$types = nxcSocialNetworksLinkShortenHandler::getHandlers();
+					foreach( $types as $type => $shortenHandlerClass ) {
+						try {
+							$shortenHandler = new $shortenHandlerClass( array() );
+							self::$shortenHandlerNames[ $type ] = $shortenHandler->name;
+							unset( $shortenHandler );
+						} catch( Exception $e ) {}
+					}
+				}
+
+				return self::$shortenHandlerNames;
 			}
 			case 'contentclass_attribute_list': {
 				if( count( self::$classAttributes ) === 0 ) {
@@ -230,7 +246,7 @@ class nxcSocialNetworksPublishType extends eZWorkflowEventType
 
 		$affectedClassIDs = array();
 
-		$optionNames = array( 'publish_only_on_create', 'include_url', 'shorten_url' );
+		$optionNames = array( 'publish_only_on_create', 'include_url', 'shorten_url', 'shorten_handler' );
 		$options     = array();
 		$var         = 'WorkflowEvent_event_nxcsocialnetworkspublish_handler_options';
 		if( $http->hasPostVariable( $var ) ) {

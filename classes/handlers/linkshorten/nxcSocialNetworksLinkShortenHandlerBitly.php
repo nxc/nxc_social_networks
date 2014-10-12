@@ -8,13 +8,15 @@
 
 class nxcSocialNetworksLinkShortenHandlerBitly extends nxcSocialNetworksLinkShortenHandler
 {
+	public $name = "Bit.ly";
+
 	public function shorten( $url ) {
 		$shortUrl = false;
 		$bitly = new Bitly( null, null, eZINI::instance( 'nxcsocialnetworks.ini' )->variable( 'LinkShortenHandlerBitly', 'GenericAccessToken' ) );
 
 		try {
-			$responce = $bitly->shorten( $url );
-			$responseUrl = $responce['url'];
+			$response = $bitly->shorten( $url );
+			$responseUrl = $response['url'];
 
 			if( $responseUrl != '' ) {
 				$shortUrl = $responseUrl;

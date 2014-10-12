@@ -33,7 +33,7 @@ class nxcSocialNetworksPublishHandlerLinkedIn extends nxcSocialNetworksPublishHa
 				isset( $options['shorten_url'] )
 				&& (bool) $options['shorten_url'] === true
 			) {
-				$urlReturned = $this->shorten( $url );
+				$urlReturned = $this->shorten( $url, $options['shorten_handler'] );
 				if( is_string( $urlReturned ) ) {
 					$url = $urlReturned;
 				}

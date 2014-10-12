@@ -8,6 +8,7 @@
 
 class nxcSocialNetworksLinkShortenHandlerVgd extends nxcSocialNetworksLinkShortenHandler
 {
+	public $name = "v.gd";
 	public $serviceCallUrl = "http://v.gd/create.php?format=simple&url=";
 
 	public function shorten( $url ) {
