@@ -8,6 +8,7 @@
 
 class nxcSocialNetworksLinkShortenHandlerGoogl extends nxcSocialNetworksLinkShortenHandler
 {
+	public $name = "Goo.gl";
 	public $serviceCallUrl = "https://www.googleapis.com/urlshortener/v1/url";
 
 	public function shorten( $url ) {

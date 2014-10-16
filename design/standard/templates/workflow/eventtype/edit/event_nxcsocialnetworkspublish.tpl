@@ -80,6 +80,24 @@
 						<label class="nxc-social-network-attribute-checkbox"><input type="checkbox" name="WorkflowEvent_event_nxcsocialnetworkspublish_handler_options[shorten_url][{$handler.id}]" value="1" {if $handler.options.shorten_url}checked="checked"{/if}/>
 						{'Shorten node`s URL'|i18n( 'extension/nxc_social_networks' )}</label>
 
+						<label class="nxc-social-network-attribute-select">{'Shorten node`s URL Service'|i18n( 'extension/nxc_social_networks' )}:</label>
+						<select name="WorkflowEvent_event_nxcsocialnetworkspublish_handler_options[shorten_handler][{$handler.id}]">
+							{if $handler.options.shorten_handler|eq( '' )}<option value="" selected>None</option>{/if}
+							{foreach $event.available_shorten_handler_names as $type => $name}
+								<option value="{$type}"{if $handler.options.shorten_handler|eq( $type )} selected{/if}>{$name}</option>
+							{/foreach}
+						</select>
+
+						<br />
+
+						<label class="nxc-social-network-attribute-select">{'Message Handler'|i18n( 'extension/nxc_social_networks' )}:</label>
+						<select name="WorkflowEvent_event_nxcsocialnetworkspublish_handler_options[message_handler][{$handler.id}]">
+							{if $handler.options.message_handler|eq( '' )}<option value="" selected>None</option>{/if}
+							{foreach $event.available_message_handler_names as $type => $name}
+								<option value="{$type}"{if $handler.options.message_handler|eq( $type )} selected{/if}>{$name}</option>
+							{/foreach}
+						</select>
+
 						{if $handler.has_extra_options}
 							{include
 								uri=concat( 'design:', $handler.extra_options_edit_template )

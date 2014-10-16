@@ -28,6 +28,11 @@ class nxcSocialNetworksLinkShortenHandler
 		}
 	}
 
+	public static function getHandlers() {
+		$ini = eZINI::instance( 'nxcsocialnetworks.ini' );
+		return (array) $ini->variable( 'General', 'LinkShortenHandlers' );
+	}
+
 	public function shortenUrl( $serviceApiCallUrl, $type = 'get', $postData = null ) {
 		$shortUrl = false;
 

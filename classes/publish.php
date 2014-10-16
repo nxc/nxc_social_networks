@@ -185,8 +185,20 @@ class nxcSocialNetworksPublishHandler extends eZPersistentObject
 		return false;
 	}
 
-	public function shorten( $url ) {
-		return nxcSocialNetworksLinkShortenHandler::instance()->shorten( $url );
+	public function shorten( $url, $handler = null ) {
+		if( $handler != null ) {
+			return nxcSocialNetworksLinkShortenHandler::instance( $handler )->shorten( $url );
+		} else {
+			return nxcSocialNetworksLinkShortenHandler::instance()->shorten( $url );
+		}
+	}
+
+	public function message( $publishHandler, $object, $message, $messageLength = null, $options, $handler = null ) {
+		if( $handler != null ) {
+			return nxcSocialNetworksMessageHandler::instance( $handler )->message( $publishHandler, $object, $message, $messageLength, $options );
+		} else {
+			return nxcSocialNetworksMessageHandler::instance()->message( $publishHandler, $object, $message, $messageLength, $options );
+		}
 	}
 }
 ?>

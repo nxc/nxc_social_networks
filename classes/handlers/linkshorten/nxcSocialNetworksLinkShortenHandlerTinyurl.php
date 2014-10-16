@@ -8,6 +8,7 @@
 
 class nxcSocialNetworksLinkShortenHandlerTinyurl extends nxcSocialNetworksLinkShortenHandler
 {
+	public $name = "TinyUrl.com";
 	public $serviceCallUrl = "http://tinyurl.com/api-create.php?url=";
 
 	public function shorten( $url ) {

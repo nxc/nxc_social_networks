@@ -5,6 +5,8 @@ Primary extension development by NXC Consulting
 
 Link Shorten Handler System by https://github.com/brookinsconsulting
 
+Message Handler System by https://github.com/brookinsconsulting
+
 Instagram Support by https://github.com/seroman
 
 Twitter Search Support by https://github.com/myxt

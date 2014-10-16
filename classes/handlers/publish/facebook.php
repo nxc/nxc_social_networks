@@ -21,8 +21,9 @@ class nxcSocialNetworksPublishHandlerFacebook extends nxcSocialNetworksPublishHa
 
 	public function publish( eZContentObject $object, $message ) {
 		$options = $this->getOptions();
-
+		$messageLength = null;
 		$targetID = 'me';
+
 		if(
 			isset( $options['target_id'] )
 			&& strlen( $options['target_id'] ) > 0
@@ -30,25 +31,7 @@ class nxcSocialNetworksPublishHandlerFacebook extends nxcSocialNetworksPublishHa
 			$targetID = $options['target_id'];
 		}
 
-		if(
-			isset( $options['include_url'] )
-			&& (bool) $options['include_url'] === true
-		) {
-			$url = $object->attribute( 'main_node' )->attribute( 'url_alias' );
-			eZURI::transformURI( $url, true, 'full' );
-
-			if(
-				isset( $options['shorten_url'] )
-				&& (bool) $options['shorten_url'] === true
-			) {
-				$urlReturned = $this->shorten( $url );
-				if( is_string( $urlReturned ) ) {
-					$url = $urlReturned;
-				}
-			}
-
-			$message .= ' ' . $url;
-		}
+		$message = $this->message( $this, $object, $message, $messageLength, $options, $options['message_handler'] );
 
 		$this->getAPI()->api(
 			'/' . $targetID . '/feed',

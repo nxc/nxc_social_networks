@@ -11,7 +11,7 @@ class nxc_social_networksInfo
 	public static function info() {
 		return array(
 			'Name'      => '<a href="http://projects.ez.no/nxc_social_networks">NXC Social Networks Integration</a>',
-			'Version'   => '1.1',
+			'Version'   => '1.2',
 			'Author'    => 'SD / NXC International SA / Brookins Consulting',
 			'Copyright' => array( 'Copyright &copy; ' . date( 'Y' ). ' <a href="http://nxc.no" target="blank">NXC Consulting</a>',
 								  'Copyright &copy; 1999 - ' . date( 'Y' ) . ' <a href="http://brookinsconsulting.com" target="blank">Brookins Consulting</a>' ),

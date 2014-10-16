@@ -14,7 +14,10 @@ a.nxc-facebook-signin:active, a.nxc-twitter-signin:active, a.nxc-linkedin-signin
 div.nxc-social-networks-login { margin: 0px -5px 0px -5px; }
 div.nxc-social-networks-login a { margin: 5px; float: left; }
 
-table.list td.nxc-social-network-td-container { padding: 10px; vertical-align: top;}
+table.list td.nxc-social-network-td-container { padding: 10px; vertical-align: top; }
 table.list label.nxc-social-network-attribute-header, label.nxc-social-network-attribute-header { font-weight: bold; padding-bottom: 5px; color: #333; }
-table.nxc-social-network-attribute-list { margin-bottom: 10px;}
-.nxc-social-network-attribute-controlbar { padding-bottom: 10px;}
+table.nxc-social-network-attribute-list { margin-bottom: 10px; }
+.nxc-social-network-attribute-controlbar { padding-bottom: 10px; }
+
+label.nxc-social-network-attribute-select { display: inline; }
+label.nxc-social-network-attribute-select-block { display: block; }
