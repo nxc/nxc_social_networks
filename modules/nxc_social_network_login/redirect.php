@@ -5,6 +5,7 @@
  * @date    16 Sep 2012
  **/
 
+$http   = eZHTTPTool::instance();
 $module = $Params['Module'];
 
 try{
@@ -12,6 +13,11 @@ try{
 } catch( Exception $e ) {
 	eZDebug::writeError( $e->getMessage(), 'NXC Social Networks Login' );
 	return $module->handleError( eZError::KERNEL_NOT_FOUND, 'kernel' );
+}
+
+
+if( $http->hasVariable( 'after_login_url' ) ) {
+	$http->setSessionVariable( 'AfterLoginURI', $http->variable( 'after_login_url' ) );
 }
 
 try{

@@ -146,6 +146,8 @@ if( $object instanceof eZContentObject ) {
 			&& $http->hasGetVariable( 'state' )
 		) {
 			$redirectURI = base64_decode( $http->getVariable( 'state' ) );
+		} elseif( $http->hasSessionVariable( 'AfterLoginURI' ) ) {
+			$redirectURI = $http->sessionVariable( 'AfterLoginURI' );
 		} elseif( $http->hasSessionVariable( 'LastAccessesURI' ) && $http->sessionVariable( 'LastAccessesURI' ) !== '' ) {
 			$redirectURI = $http->sessionVariable( 'LastAccessesURI' );
 		} elseif( ( $refferer = eZSys::serverVariable( 'HTTP_REFERER', true ) ) !== null ) {
