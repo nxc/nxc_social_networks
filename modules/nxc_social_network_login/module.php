@@ -12,12 +12,12 @@ $Module = array(
 
 $ViewList = array();
 $ViewList['redirect'] = array(
-	'functions' => array( 'redirect' ),
+	'functions' => array( 'login' ),
 	'script'    => 'redirect.php',
 	'params'    => array( 'type' )
 );
 $ViewList['callback'] = array(
-	'functions' => array( 'callback' ),
+	'functions' => array( 'login' ),
 	'script'    => 'callback.php',
 	'params'    => array( 'type' )
 );
