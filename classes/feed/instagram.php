@@ -20,6 +20,45 @@ class nxcSocialNetworksFeedInstagram extends nxcSocialNetworksFeed
 		);
 	}
 
+	public function getTimeline( $userID = false, $limit = 20 ) {
+		$result = array( 'result' => array() );
+
+		$accumulator = $this->debugAccumulatorGroup . '_instagram_timeline';
+		eZDebug::accumulatorStart(
+			$accumulator,
+			$this->debugAccumulatorGroup,
+			'timeline'
+		);
+
+		$cacheFileHandler = $this->getCacheFileHandler( 'timeline', array( $userID, $limit ) );
+		try{
+			if( $this->isCacheExpired( $cacheFileHandler ) ) {
+				$API = new Instagram( $this->API[ 'key' ] );
+				if( $this->API[ 'token' ] !== null ) {
+					$API->setAccessToken( $this->API[ 'token' ] );
+				}
+
+				$items    = array();
+				$response = $API->getUserMedia( $userID, $limit );
+				$items    = is_object( $response ) && isset( $response->data ) ? $response->data : array();
+				foreach( $items as $i => $item ) {
+					$items[ $i ] = self::objectToArray( $item );
+				} 
+				$cacheFileHandler->fileStoreContents( $cacheFileHandler->filePath, serialize( $items ) );
+			} else {
+				$items = unserialize( $cacheFileHandler->fetchContents() );
+			}
+
+			eZDebug::accumulatorStop( $accumulator );
+			$result['result'] = $items;
+			return $result;
+		} catch( Exception $e ) {
+			eZDebug::accumulatorStop( $accumulator );
+			eZDebug::writeError( $e->getMessage(), self::$debugMessagesGroup );
+			return $result;
+		}
+	}
+
 	public function getMediaRecent( $pageID = false, $limit = 20 ) {
 		$result = array( 'result' => array() );
 

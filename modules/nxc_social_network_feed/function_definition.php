@@ -189,4 +189,27 @@ $FunctionList['instagram_media_recent'] = array(
 	)
 );
 
+$FunctionList['instagram_timeline'] = array(
+	'name'           => 'instagram_timeline',
+	'call_method'    => array(
+		'class'  => 'nxcSocialNetworksFeedInstagram',
+		'method' => 'getTimeline'
+	),
+	'parameter_type' => 'standard',
+	'parameters'       => array(
+		array(
+			'name'     => 'user_id',
+			'type'     => 'string',
+			'required' => true,
+			'default'  => false
+		),
+		array(
+			'name'     => 'limit',
+			'type'     => 'int',
+			'required' => false,
+			'default'  => 3
+		)
+	)
+);
+
 ?>
