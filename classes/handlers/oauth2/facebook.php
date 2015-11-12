@@ -11,7 +11,16 @@ class nxcSocialNetworksOAuth2Facebook extends nxcSocialNetworksOAuth2
 	public static $tokenType = nxcSocialNetworksOAuth2Token::TYPE_FACEBOOK;
 
 	public function getPersistenceTokenScopes() {
-		return array( 'offline_access', 'publish_stream', 'read_stream', 'manage_pages' );
+		$ini = eZINI::instance( 'nxcsocialnetworks.ini' );
+		$scopes = array( 'offline_access', 'publish_stream', 'read_stream', 'manage_pages' );
+		if( $ini->hasVariable( 'FacebookApplication', 'Scopes' ) ) {
+			$customScopes = explode( ',', $ini->variable( 'FacebookApplication', 'Scopes' ) );
+			if( !empty( $customScopes ) ) {
+				$scopes = $customScopes;
+			}
+
+		}
+		return $scopes;
 	}
 
 	public function getAuthorizeURL( array $scopes = null, $redirectURL = null ) {

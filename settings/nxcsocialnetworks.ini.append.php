@@ -42,6 +42,9 @@ Secret=a00a3aec0c7bebb97b57f93800b2dab1
 # New application can be created at https://dev.twitter.com/apps/new
 # Set the following application settings
 # - Access level = Read and write
+
+#Scopes=read_stream
+#Uncomment this and list here all scopes that you need (separated by comma). This overrides default ones: offline_access, publish_stream, read_stream, manage_pages.
 [TwitterApplication]
 Key=cRACdvBvd74Bw4gtqtlQ
 Secret=jD81UH24wXP9f8UscgQbqaqVzbHIxKagadb5BZCwcg
