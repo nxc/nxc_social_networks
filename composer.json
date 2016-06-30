@@ -1,0 +1,16 @@
+{
+    "name": "nxc/nxc_social_networks",
+    "description": "This extension implements full eZ Publish integration with social networks.",
+    "type": "ezpublish-legacy-extension",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "NXC Social Networks",
+            "email": "contact@nxcgroup.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "ezsystems/ezpublish-legacy-installer": "*"
+    }
+}
