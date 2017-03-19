@@ -12,7 +12,7 @@ class nxcSocialNetworksOAuth2Facebook extends nxcSocialNetworksOAuth2
 
 	public function getPersistenceTokenScopes() {
 		$ini = eZINI::instance( 'nxcsocialnetworks.ini' );
-		$scopes = array( 'offline_access', 'publish_stream', 'read_stream', 'manage_pages' );
+		$scopes = array( 'publish_pages', 'user_posts', 'manage_pages' );
 		if( $ini->hasVariable( 'FacebookApplication', 'Scopes' ) ) {
 			$customScopes = explode( ',', $ini->variable( 'FacebookApplication', 'Scopes' ) );
 			if( !empty( $customScopes ) ) {
@@ -43,20 +43,26 @@ class nxcSocialNetworksOAuth2Facebook extends nxcSocialNetworksOAuth2
 		}
 		eZURI::transformURI( $redirectURL, false, 'full' );
 
-		$data = file_get_contents(
-			'https://graph.facebook.com/oauth/access_token?' .
+		$url = 'https://graph.facebook.com/oauth/access_token?' .
 			'client_id=' . $this->appSettings['key'] . '&' .
 			'client_secret=' . $this->appSettings['secret'] . '&' .
 			'code=' . $http->getVariable( 'code' ) . '&' .
-			'redirect_uri=' . $redirectURL
-		);
+			'redirect_uri=' . $redirectURL;
+		$ch  = curl_init();
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+		curl_setopt($ch, CURLOPT_HEADER, false);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		$data = curl_exec($ch);
+		curl_close($ch);
 
 		if( strpos( $data, 'access_token=' ) !== false ) {
 			preg_match( '/access_token=([^&]*)/i', $data, $matches );
 			if( isset( $matches[1] ) ) {
 				return array(
 					'token'  => $matches[1],
-					'secret' => null
+					'secret' => ''
 				);
 			}
 		}
